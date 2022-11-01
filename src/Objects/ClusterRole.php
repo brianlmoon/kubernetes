@@ -8,7 +8,7 @@ class ClusterRole extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'ClusterRole';
 
-    public const VERSION = 'rbac.k8s.io/v1beta1';
+    public const VERSION = 'rbac.k8s.io/v1alpha1';
 
     /**
      * AggregationRule is an optional field that describes how to build the

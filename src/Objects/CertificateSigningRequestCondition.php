@@ -13,30 +13,44 @@ class CertificateSigningRequestCondition extends \Moonspot\Kubernetes\BaseObject
     public ?Time $lastTransitionTime = null;
 
     /**
-     * timestamp for the last update to this condition
+     * lastUpdateTime is the time of the last update to this condition
      */
     public ?Time $lastUpdateTime = null;
 
     /**
-     * human readable message with details about the request state
+     * message contains a human readable message with details about the request
+     * state
      */
     public ?string $message = null;
 
     /**
-     * brief reason for the request state
+     * reason indicates a brief reason for the request state
      */
     public ?string $reason = null;
 
     /**
-     * Status of the condition, one of True, False, Unknown. Approved, Denied,
-     * and Failed conditions may not be "False" or "Unknown". Defaults to
-     * "True". If unset, should be treated as "True".
+     * status of the condition, one of True, False, Unknown. Approved, Denied,
+     * and Failed conditions may not be "False" or "Unknown".
      */
-    public ?string $status = null;
+    public string $status;
 
     /**
-     * type of the condition. Known conditions include "Approved", "Denied",
-     * and "Failed".
+     * type of the condition. Known conditions are "Approved", "Denied", and
+     * "Failed".
+     * 
+     * An "Approved" condition is added via the /approval subresource,
+     * indicating the request was approved and should be issued by the signer.
+     * 
+     * A "Denied" condition is added via the /approval subresource, indicating
+     * the request was denied and should not be issued by the signer.
+     * 
+     * A "Failed" condition is added via the /status subresource, indicating
+     * the signer failed to issue the certificate.
+     * 
+     * Approved and Denied conditions are mutually exclusive. Approved, Denied,
+     * and Failed conditions cannot be removed once added.
+     * 
+     * Only one condition of a given type is allowed.
      */
     public string $type;
 

@@ -8,7 +8,7 @@ class IngressClassList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'IngressClassList';
 
-    public const VERSION = 'networking.k8s.io/v1beta1';
+    public const VERSION = 'networking.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

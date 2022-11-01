@@ -6,23 +6,20 @@ class IngressBackend extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Resource is an ObjectRef to another Kubernetes resource in the namespace
-     * of the Ingress object. If resource is specified, serviceName and
-     * servicePort must not be specified.
+     * of the Ingress object. If resource is specified, a service.Name and
+     * service.Port must not be specified. This is a mutually exclusive setting
+     * with "Service".
      */
     public ?TypedLocalObjectReference $resource = null;
 
     /**
-     * Specifies the name of the referenced service.
+     * Service references a Service as a Backend. This is a mutually exclusive
+     * setting with "Resource".
      */
-    public ?string $serviceName = null;
-
-    /**
-     * Specifies the port of the referenced service.
-     */
-    public ?IntOrString $servicePort = null;
+    public ?IngressServiceBackend $service = null;
 
     public function __construct() {
         $this->resource = new TypedLocalObjectReference();
-        $this->servicePort = new IntOrString();
+        $this->service = new IngressServiceBackend();
     }
 }

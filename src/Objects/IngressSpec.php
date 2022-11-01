@@ -8,12 +8,12 @@ use Moonspot\Kubernetes\Objects\Sets\IngressTLSSet;
 class IngressSpec extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * A default backend capable of servicing requests that don't match any
-     * rule. At least one of 'backend' or 'rules' must be specified. This field
-     * is optional to allow the loadbalancer controller or defaulting logic to
-     * specify a global default.
+     * DefaultBackend is the backend that should handle requests that don't
+     * match any rule. If Rules are not specified, DefaultBackend must be
+     * specified. If DefaultBackend is not set, the handling of requests that
+     * do not match any of the rules will be up to the Ingress controller.
      */
-    public ?IngressBackend $backend = null;
+    public ?IngressBackend $defaultBackend = null;
 
     /**
      * IngressClassName is the name of the IngressClass cluster resource. The
@@ -45,7 +45,7 @@ class IngressSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?IngressTLSSet $tls = null;
 
     public function __construct() {
-        $this->backend = new IngressBackend();
+        $this->defaultBackend = new IngressBackend();
         $this->rules = new IngressRuleSet();
         $this->tls = new IngressTLSSet();
     }

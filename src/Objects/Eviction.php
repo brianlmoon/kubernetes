@@ -6,7 +6,7 @@ class Eviction extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'Eviction';
 
-    public const VERSION = 'policy/v1beta1';
+    public const VERSION = 'policy/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

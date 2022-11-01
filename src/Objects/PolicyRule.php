@@ -29,17 +29,15 @@ class PolicyRule extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?StringSet $resourceNames = null;
 
-    //
-    // Resources is a list of resources this rule applies to.  '*' represents
-    // all resources in the specified apiGroups. '*/foo' represents the
-    // subresource 'foo' for all resources in the specified apiGroups.
-    //
+    /**
+     * Resources is a list of resources this rule applies to. '*' represents
+     * all resources.
+     */
     public ?StringSet $resources = null;
 
     /**
      * Verbs is a list of Verbs that apply to ALL the ResourceKinds and
-     * AttributeRestrictions contained in this rule.  VerbAll represents all
-     * kinds.
+     * AttributeRestrictions contained in this rule. '*' represents all verbs.
      */
     public StringSet $verbs;
 

@@ -10,11 +10,8 @@ class CustomResourceDefinitionVersion extends \Moonspot\Kubernetes\BaseObject {
      * additionalPrinterColumns specifies additional columns returned in Table
      * output. See
      * https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables
-     * for details. Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level
-     * columns should be used instead). If no top-level or per-version columns
-     * are specified, a single column displaying the age of the custom resource
-     * is used.
+     * for details. If no columns are specified, a single column displaying the
+     * age of the custom resource is used.
      */
     public ?CustomResourceColumnDefinitionSet $additionalPrinterColumns = null;
 
@@ -41,10 +38,8 @@ class CustomResourceDefinitionVersion extends \Moonspot\Kubernetes\BaseObject {
     public string $name;
 
     /**
-     * schema describes the schema used for validation and pruning of this
-     * version of the custom resource. Top-level and per-version schemas are
-     * mutually exclusive. Per-version schemas must not all be set to identical
-     * values (top-level validation schema should be used instead).
+     * schema describes the schema used for validation, pruning, and defaulting
+     * of this version of the custom resource.
      */
     public ?CustomResourceValidation $schema = null;
 
@@ -63,9 +58,7 @@ class CustomResourceDefinitionVersion extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * subresources specify what subresources this version of the defined
-     * custom resource have. Top-level and per-version subresources are
-     * mutually exclusive. Per-version subresources must not all be set to
-     * identical values (top-level subresources should be used instead).
+     * custom resource have.
      */
     public ?CustomResourceSubresources $subresources = null;
 

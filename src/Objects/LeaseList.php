@@ -8,7 +8,7 @@ class LeaseList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'LeaseList';
 
-    public const VERSION = 'coordination.k8s.io/v1beta1';
+    public const VERSION = 'coordination.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

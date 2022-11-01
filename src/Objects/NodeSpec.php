@@ -8,9 +8,10 @@ use Moonspot\Kubernetes\Objects\Sets\TaintSet;
 class NodeSpec extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * If specified, the source to get node configuration from The
+     * Deprecated. If specified, the source of the node's configuration. The
      * DynamicKubeletConfig feature gate must be enabled for the Kubelet to use
-     * this field
+     * this field. This field is deprecated as of 1.22:
+     * https://git.k8s.io/enhancements/keps/sig-node/281-dynamic-kubelet-configuration
      */
     public ?NodeConfigSource $configSource = null;
 

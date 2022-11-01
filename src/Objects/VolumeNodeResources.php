@@ -9,8 +9,8 @@ class VolumeNodeResources extends \Moonspot\Kubernetes\BaseObject {
      * used on a node. A volume that is both attached and mounted on a node is
      * considered to be used once, not twice. The same rule applies for a
      * unique volume that is shared among multiple pods on the same node. If
-     * this field is nil, then the supported number of volumes on this node is
-     * unbounded.
+     * this field is not specified, then the supported number of volumes on
+     * this node is unbounded.
      */
     public ?int $count = null;
 }

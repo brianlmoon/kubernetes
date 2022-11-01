@@ -18,7 +18,9 @@ class StorageVersionList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $apiVersion = null;
 
-
+    /**
+     * Items holds a list of StorageVersion
+     */
     public StorageVersionSet $items;
 
     /**
@@ -29,7 +31,10 @@ class StorageVersionList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $kind = null;
 
-
+    /**
+     * Standard list metadata. More info:
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
     public ?ListMeta $metadata = null;
 
     public function __construct() {

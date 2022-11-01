@@ -28,9 +28,8 @@ class JSONSchemaProps extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * default is a default value for undefined object fields. Defaulting is a
-     * beta feature under the CustomResourceDefaulting feature gate.
-     * CustomResourceDefinitions with defaults must be created using the v1 (or
-     * newer) CustomResourceDefinition API.
+     * beta feature under the CustomResourceDefaulting feature gate. Defaulting
+     * requires spec.preserveUnknownFields to be false.
      */
     public ?JSON $default = null;
 

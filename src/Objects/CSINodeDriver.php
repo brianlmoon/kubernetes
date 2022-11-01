@@ -8,7 +8,7 @@ class CSINodeDriver extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * allocatable represents the volume resources of a node that are available
-     * for scheduling.
+     * for scheduling. This field is beta.
      */
     public ?VolumeNodeResources $allocatable = null;
 

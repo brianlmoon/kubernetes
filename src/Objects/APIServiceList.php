@@ -8,7 +8,7 @@ class APIServiceList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'APIServiceList';
 
-    public const VERSION = 'apiregistration.apis.pkg.kube-aggregator.k8s.io/v1beta1';
+    public const VERSION = 'apiregistration.apis.pkg.kube-aggregator.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -18,7 +18,9 @@ class APIServiceList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $apiVersion = null;
 
-
+    /**
+     * Items is the list of APIService
+     */
     public APIServiceSet $items;
 
     /**
@@ -29,7 +31,10 @@ class APIServiceList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $kind = null;
 
-
+    /**
+     * Standard list metadata More info:
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
     public ?ListMeta $metadata = null;
 
     public function __construct() {

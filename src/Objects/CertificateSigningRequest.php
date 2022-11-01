@@ -6,7 +6,7 @@ class CertificateSigningRequest extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'CertificateSigningRequest';
 
-    public const VERSION = 'certificates.k8s.io/v1beta1';
+    public const VERSION = 'certificates.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -28,12 +28,17 @@ class CertificateSigningRequest extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * The certificate request itself and any additional information.
+     * spec contains the certificate request, and is immutable after creation.
+     * Only the request, signerName, expirationSeconds, and usages fields can
+     * be set on creation. Other fields are derived by Kubernetes and cannot be
+     * modified by users.
      */
-    public ?CertificateSigningRequestSpec $spec = null;
+    public CertificateSigningRequestSpec $spec;
 
     /**
-     * Derived information about the request.
+     * status contains information about whether the request is approved or
+     * denied, and the certificate issued by the signer, or the failure
+     * condition indicating signer failure.
      */
     public ?CertificateSigningRequestStatus $status = null;
 

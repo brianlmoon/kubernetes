@@ -6,7 +6,7 @@ class SelfSubjectRulesReview extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'SelfSubjectRulesReview';
 
-    public const VERSION = 'authorization.k8s.io/v1beta1';
+    public const VERSION = 'authorization.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -24,7 +24,10 @@ class SelfSubjectRulesReview extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $kind = null;
 
-
+    /**
+     * Standard list metadata. More info:
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
     public ?ObjectMeta $metadata = null;
 
     /**

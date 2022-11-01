@@ -7,6 +7,14 @@ use Moonspot\Kubernetes\Objects\Sets\StatefulSetConditionSet;
 class StatefulSetStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
+     * Total number of available pods (ready for at least minReadySeconds)
+     * targeted by this statefulset. This is an alpha field and requires
+     * enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when
+     * graduating to beta
+     */
+    public ?int $availableReplicas = null;
+
+    /**
      * collisionCount is the count of hash collisions for the StatefulSet. The
      * StatefulSet controller uses this field as a collision avoidance
      * mechanism when it needs to create the name for the newest

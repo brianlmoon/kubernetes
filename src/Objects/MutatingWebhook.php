@@ -15,9 +15,8 @@ class MutatingWebhook extends \Moonspot\Kubernetes\BaseObject {
      * this object. If a persisted webhook configuration specifies allowed
      * versions and does not include any versions known to the API Server,
      * calls to the webhook will fail and be subject to the failure policy.
-     * Default to `['v1beta1']`.
      */
-    public ?StringSet $admissionReviewVersions = null;
+    public StringSet $admissionReviewVersions;
 
     /**
      * ClientConfig defines how to communicate with the hook. Required
@@ -27,7 +26,7 @@ class MutatingWebhook extends \Moonspot\Kubernetes\BaseObject {
     /**
      * FailurePolicy defines how unrecognized errors from the admission
      * endpoint are handled - allowed values are Ignore or Fail. Defaults to
-     * Ignore.
+     * Fail.
      */
     public ?string $failurePolicy = null;
 
@@ -49,7 +48,7 @@ class MutatingWebhook extends \Moonspot\Kubernetes\BaseObject {
      * extensions/v1beta1 would be converted to apps/v1 and sent to the
      * webhook.
      * 
-     * Defaults to "Exact"
+     * Defaults to "Equivalent"
      */
     public ?string $matchPolicy = null;
 
@@ -157,20 +156,20 @@ class MutatingWebhook extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * SideEffects states whether this webhook has side effects. Acceptable
-     * values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects
-     * MUST implement a reconciliation system, since a request may be rejected
-     * by a future step in the admission chain and the side effects therefore
-     * need to be undone. Requests with the dryRun attribute will be
-     * auto-rejected if they match a webhook with sideEffects == Unknown or
-     * Some. Defaults to Unknown.
+     * values are: None, NoneOnDryRun (webhooks created via v1beta1 may also
+     * specify Some or Unknown). Webhooks with side effects MUST implement a
+     * reconciliation system, since a request may be rejected by a future step
+     * in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a
+     * webhook with sideEffects == Unknown or Some.
      */
-    public ?string $sideEffects = null;
+    public string $sideEffects;
 
     /**
      * TimeoutSeconds specifies the timeout for this webhook. After the timeout
      * passes, the webhook call will be ignored or the API call will fail based
      * on the failure policy. The timeout value must be between 1 and 30
-     * seconds. Default to 30 seconds.
+     * seconds. Default to 10 seconds.
      */
     public ?int $timeoutSeconds = null;
 

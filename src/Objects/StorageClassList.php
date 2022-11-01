@@ -8,7 +8,7 @@ class StorageClassList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'StorageClassList';
 
-    public const VERSION = 'storage.k8s.io/v1beta1';
+    public const VERSION = 'storage.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

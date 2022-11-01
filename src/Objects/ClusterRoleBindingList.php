@@ -8,7 +8,7 @@ class ClusterRoleBindingList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'ClusterRoleBindingList';
 
-    public const VERSION = 'rbac.k8s.io/v1beta1';
+    public const VERSION = 'rbac.k8s.io/v1alpha1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

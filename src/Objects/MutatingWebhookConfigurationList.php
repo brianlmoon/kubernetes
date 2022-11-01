@@ -8,7 +8,7 @@ class MutatingWebhookConfigurationList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'MutatingWebhookConfigurationList';
 
-    public const VERSION = 'admissionregistration.k8s.io/v1beta1';
+    public const VERSION = 'admissionregistration.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

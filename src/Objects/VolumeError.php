@@ -6,7 +6,7 @@ class VolumeError extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * String detailing the error encountered during Attach or Detach
-     * operation. This string may be logged, so it should not contain sensitive
+     * operation. This string maybe logged, so it should not contain sensitive
      * information.
      */
     public ?string $message = null;

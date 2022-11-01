@@ -5,13 +5,6 @@ namespace Moonspot\Kubernetes\Objects;
 class CustomResourceColumnDefinition extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * JSONPath is a simple JSON path (i.e. with array notation) which is
-     * evaluated against each custom resource to produce the value for this
-     * column.
-     */
-    public string $JSONPath;
-
-    /**
      * description is a human readable description of this column.
      */
     public ?string $description = null;
@@ -24,6 +17,13 @@ class CustomResourceColumnDefinition extends \Moonspot\Kubernetes\BaseObject {
      * for details.
      */
     public ?string $format = null;
+
+    /**
+     * jsonPath is a simple JSON path (i.e. with array notation) which is
+     * evaluated against each custom resource to produce the value for this
+     * column.
+     */
+    public string $jsonPath;
 
     /**
      * name is a human readable name for the column.

@@ -16,7 +16,7 @@ class SubjectAccessReviewSpec extends \Moonspot\Kubernetes\BaseObject {
     /**
      * Groups is the groups you're testing for.
      */
-    public ?StringSet $group = null;
+    public ?StringSet $groups = null;
 
     /**
      * NonResourceAttributes describes information for a non-resource access
@@ -37,13 +37,13 @@ class SubjectAccessReviewSpec extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * User is the user you're testing for. If you specify "User" but not
-     * "Group", then is it interpreted as "What if User were not a member of
+     * "Groups", then is it interpreted as "What if User were not a member of
      * any groups
      */
     public ?string $user = null;
 
     public function __construct() {
-        $this->group = new StringSet();
+        $this->groups = new StringSet();
         $this->nonResourceAttributes = new NonResourceAttributes();
         $this->resourceAttributes = new ResourceAttributes();
     }

@@ -18,7 +18,9 @@ class StatefulSetList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $apiVersion = null;
 
-
+    /**
+     * Items is the list of stateful sets.
+     */
     public StatefulSetSet $items;
 
     /**
@@ -29,7 +31,10 @@ class StatefulSetList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $kind = null;
 
-
+    /**
+     * Standard list's metadata. More info:
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
     public ?ListMeta $metadata = null;
 
     public function __construct() {

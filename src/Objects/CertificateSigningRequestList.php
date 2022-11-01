@@ -8,7 +8,7 @@ class CertificateSigningRequestList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'CertificateSigningRequestList';
 
-    public const VERSION = 'certificates.k8s.io/v1beta1';
+    public const VERSION = 'certificates.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -18,7 +18,9 @@ class CertificateSigningRequestList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $apiVersion = null;
 
-
+    /**
+     * items is a collection of CertificateSigningRequest objects
+     */
     public CertificateSigningRequestSet $items;
 
     /**

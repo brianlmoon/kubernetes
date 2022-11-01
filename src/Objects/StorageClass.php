@@ -9,7 +9,7 @@ class StorageClass extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'StorageClass';
 
-    public const VERSION = 'storage.k8s.io/v1beta1';
+    public const VERSION = 'storage.k8s.io/v1';
 
     /**
      * AllowVolumeExpansion shows whether the storage class allow volume expand

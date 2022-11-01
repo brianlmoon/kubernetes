@@ -13,7 +13,7 @@ class TokenRequest extends \Moonspot\Kubernetes\BaseObject {
     /**
      * ExpirationSeconds is the duration of validity of the token in
      * "TokenRequestSpec". It has the same default value of "ExpirationSeconds"
-     * in "TokenRequestSpec"
+     * in "TokenRequestSpec".
      */
     public ?int $expirationSeconds = null;
 }

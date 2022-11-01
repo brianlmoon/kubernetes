@@ -18,7 +18,9 @@ class PodDisruptionBudgetList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $apiVersion = null;
 
-
+    /**
+     * items list individual PodDisruptionBudget objects
+     */
     public PodDisruptionBudgetSet $items;
 
     /**
@@ -29,7 +31,10 @@ class PodDisruptionBudgetList extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $kind = null;
 
-
+    /**
+     * Standard object's metadata. More info:
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     */
     public ?ListMeta $metadata = null;
 
     public function __construct() {

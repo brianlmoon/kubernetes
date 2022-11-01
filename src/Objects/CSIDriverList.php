@@ -8,7 +8,7 @@ class CSIDriverList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'CSIDriverList';
 
-    public const VERSION = 'storage.k8s.io/v1beta1';
+    public const VERSION = 'storage.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
