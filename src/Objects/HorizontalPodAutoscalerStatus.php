@@ -11,7 +11,7 @@ class HorizontalPodAutoscalerStatus extends \Moonspot\Kubernetes\BaseObject {
      * conditions is the set of conditions required for this autoscaler to
      * scale its target, and indicates whether or not those conditions are met.
      */
-    public HorizontalPodAutoscalerConditionSet $conditions;
+    public ?HorizontalPodAutoscalerConditionSet $conditions = null;
 
     /**
      * currentMetrics is the last read state of the metrics used by this

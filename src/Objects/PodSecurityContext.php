@@ -17,7 +17,8 @@ class PodSecurityContext extends \Moonspot\Kubernetes\BaseObject {
      * bits are OR'd with rw-rw----
      * 
      * If unset, the Kubelet will not modify the ownership and permissions of
-     * any volume.
+     * any volume. Note that this field cannot be set when spec.os.name is
+     * windows.
      */
     public ?int $fsGroup = null;
 
@@ -27,7 +28,8 @@ class PodSecurityContext extends \Moonspot\Kubernetes\BaseObject {
      * will only apply to volume types which support fsGroup based
      * ownership(and permissions). It will have no effect on ephemeral volume
      * types such as: secret, configmaps and emptydir. Valid values are
-     * "OnRootMismatch" and "Always". If not specified, "Always" is used.
+     * "OnRootMismatch" and "Always". If not specified, "Always" is used. Note
+     * that this field cannot be set when spec.os.name is windows.
      */
     public ?string $fsGroupChangePolicy = null;
 
@@ -35,7 +37,8 @@ class PodSecurityContext extends \Moonspot\Kubernetes\BaseObject {
      * The GID to run the entrypoint of the container process. Uses runtime
      * default if unset. May also be set in SecurityContext.  If set in both
      * SecurityContext and PodSecurityContext, the value specified in
-     * SecurityContext takes precedence for that container.
+     * SecurityContext takes precedence for that container. Note that this
+     * field cannot be set when spec.os.name is windows.
      */
     public ?int $runAsGroup = null;
 
@@ -54,7 +57,8 @@ class PodSecurityContext extends \Moonspot\Kubernetes\BaseObject {
      * specified in image metadata if unspecified. May also be set in
      * SecurityContext.  If set in both SecurityContext and PodSecurityContext,
      * the value specified in SecurityContext takes precedence for that
-     * container.
+     * container. Note that this field cannot be set when spec.os.name is
+     * windows.
      */
     public ?int $runAsUser = null;
 
@@ -63,25 +67,29 @@ class PodSecurityContext extends \Moonspot\Kubernetes\BaseObject {
      * container runtime will allocate a random SELinux context for each
      * container.  May also be set in SecurityContext.  If set in both
      * SecurityContext and PodSecurityContext, the value specified in
-     * SecurityContext takes precedence for that container.
+     * SecurityContext takes precedence for that container. Note that this
+     * field cannot be set when spec.os.name is windows.
      */
     public ?SELinuxOptions $seLinuxOptions = null;
 
     /**
-     * The seccomp options to use by the containers in this pod.
+     * The seccomp options to use by the containers in this pod. Note that this
+     * field cannot be set when spec.os.name is windows.
      */
     public ?SeccompProfile $seccompProfile = null;
 
     /**
      * A list of groups applied to the first process run in each container, in
      * addition to the container's primary GID.  If unspecified, no groups will
-     * be added to any container.
+     * be added to any container. Note that this field cannot be set when
+     * spec.os.name is windows.
      */
     public ?IntSet $supplementalGroups = null;
 
     /**
      * Sysctls hold a list of namespaced sysctls used for the pod. Pods with
      * unsupported sysctls (by the container runtime) might fail to launch.
+     * Note that this field cannot be set when spec.os.name is windows.
      */
     public ?SysctlSet $sysctls = null;
 
@@ -89,7 +97,8 @@ class PodSecurityContext extends \Moonspot\Kubernetes\BaseObject {
      * The Windows specific settings applied to all containers. If unspecified,
      * the options within a container's SecurityContext will be used. If set in
      * both SecurityContext and PodSecurityContext, the value specified in
-     * SecurityContext takes precedence.
+     * SecurityContext takes precedence. Note that this field cannot be set
+     * when spec.os.name is linux.
      */
     public ?WindowsSecurityContextOptions $windowsOptions = null;
 

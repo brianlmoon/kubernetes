@@ -8,7 +8,7 @@ class PriorityLevelConfigurationList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'PriorityLevelConfigurationList';
 
-    public const VERSION = 'flowcontrol.k8s.io/v1beta1';
+    public const VERSION = 'flowcontrol.k8s.io/v1beta2';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

@@ -7,7 +7,7 @@ use Moonspot\Kubernetes\Objects\Sets\JobConditionSet;
 class JobStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * The number of actively running pods.
+     * The number of pending and running pods.
      */
     public ?int $active = null;
 
@@ -47,6 +47,14 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?int $failed = null;
 
     /**
+     * The number of pods which have a Ready condition.
+     * 
+     * This field is alpha-level. The job controller populates the field when
+     * the feature gate JobReadyPods is enabled (disabled by default).
+     */
+    public ?int $ready = null;
+
+    /**
      * Represents time when the job controller started processing a job. When a
      * Job is created in the suspended state, this field is not set until the
      * first time it is resumed. This field is reset every time a Job is
@@ -71,10 +79,10 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
      * increasing the corresponding
      *     counter.
      * 
-     * This field is alpha-level. The job controller only makes use of this
-     * field when the feature gate PodTrackingWithFinalizers is enabled. Old
-     * jobs might not be tracked using this field, in which case the field
-     * remains null.
+     * This field is beta-level. The job controller only makes use of this
+     * field when the feature gate JobTrackingWithFinalizers is enabled
+     * (enabled by default). Old jobs might not be tracked using this field, in
+     * which case the field remains null.
      */
     public ?UncountedTerminatedPods $uncountedTerminatedPods = null;
 

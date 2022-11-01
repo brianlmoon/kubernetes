@@ -4,16 +4,12 @@ namespace Moonspot\Kubernetes\Objects;
 
 class Subject extends \Moonspot\Kubernetes\BaseObject {
 
-    public const KIND = 'Subject';
-
-    public const VERSION = 'rbac.k8s.io/v1alpha1';
-
     /**
-     * APIVersion holds the API group and version of the referenced subject.
-     * Defaults to "v1" for ServiceAccount subjects. Defaults to
-     * "rbac.authorization.k8s.io/v1alpha1" for User and Group subjects.
+     * APIGroup holds the API group of the referenced subject. Defaults to ""
+     * for ServiceAccount subjects. Defaults to "rbac.authorization.k8s.io" for
+     * User and Group subjects.
      */
-    public ?string $apiVersion = null;
+    public ?string $apiGroup = null;
 
     /**
      * Kind of object being referenced. Values defined by this API group are
@@ -33,9 +29,4 @@ class Subject extends \Moonspot\Kubernetes\BaseObject {
      * the Authorizer should report an error.
      */
     public ?string $namespace = null;
-
-    public function __construct() {
-        $this->apiVersion = $this::VERSION;
-        $this->kind = $this::KIND;
-    }
 }

@@ -43,6 +43,11 @@ class ServicePort extends \Moonspot\Kubernetes\BaseObject {
     /**
      * The IP protocol for this port. Supports "TCP", "UDP", and "SCTP".
      * Default is TCP.
+     * 
+     * Possible enum values:
+     *  - `"SCTP"` is the SCTP protocol.
+     *  - `"TCP"` is the TCP protocol.
+     *  - `"UDP"` is the UDP protocol.
      */
     public ?string $protocol = null;
 

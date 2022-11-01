@@ -24,6 +24,11 @@ class PortStatus extends \Moonspot\Kubernetes\BaseObject {
     /**
      * Protocol is the protocol of the service port of which status is recorded
      * here The supported values are: "TCP", "UDP", "SCTP"
+     * 
+     * Possible enum values:
+     *  - `"SCTP"` is the SCTP protocol.
+     *  - `"TCP"` is the TCP protocol.
+     *  - `"UDP"` is the UDP protocol.
      */
     public string $protocol;
 }

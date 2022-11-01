@@ -30,7 +30,12 @@ class PersistentVolumeClaimCondition extends \Moonspot\Kubernetes\BaseObject {
 
     public string $status;
 
-
+    /**
+     * Possible enum values:
+     *  - `"FileSystemResizePending"` - controller resize is finished and a
+     * file system resize is pending on node
+     *  - `"Resizing"` - a user trigger resize of pvc has been started
+     */
     public string $type;
 
     public function __construct() {

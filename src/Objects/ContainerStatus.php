@@ -11,7 +11,7 @@ class ContainerStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * The image the container is running. More info:
-     * https://kubernetes.io/docs/concepts/containers/images
+     * https://kubernetes.io/docs/concepts/containers/images.
      */
     public string $image;
 
@@ -37,10 +37,7 @@ class ContainerStatus extends \Moonspot\Kubernetes\BaseObject {
     public bool $ready;
 
     /**
-     * The number of times the container has been restarted, currently based on
-     * the number of dead containers that have not yet been removed. Note that
-     * this is calculated from dead containers. But those containers are
-     * subject to garbage collection. This value will get capped at 5 by GC.
+     * The number of times the container has been restarted.
      */
     public int $restartCount;
 

@@ -65,6 +65,15 @@ class EphemeralContainer extends \Moonspot\Kubernetes\BaseObject {
      * Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be
      * updated. More info:
      * https://kubernetes.io/docs/concepts/containers/images#updating-images
+     * 
+     * Possible enum values:
+     *  - `"Always"` means that kubelet always attempts to pull the latest
+     * image. Container will fail If the pull fails.
+     *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present
+     * on disk. Container will fail if the image isn't present and the pull
+     * fails.
+     *  - `"Never"` means that kubelet never pulls an image, but only uses a
+     * local image. Container will fail if the image isn't present
      */
     public ?string $imagePullPolicy = null;
 
@@ -137,8 +146,11 @@ class EphemeralContainer extends \Moonspot\Kubernetes\BaseObject {
      * If set, the name of the container from PodSpec that this ephemeral
      * container targets. The ephemeral container will be run in the namespaces
      * (IPC, PID, etc) of this container. If not set then the ephemeral
-     * container is run in whatever namespaces are shared for the pod. Note
-     * that the container runtime must support this feature.
+     * container uses the namespaces configured in the Pod spec.
+     * 
+     * The container runtime must implement support for this feature. If the
+     * runtime does not support namespace targeting then the result of setting
+     * this field is undefined.
      */
     public ?string $targetContainerName = null;
 
@@ -160,6 +172,14 @@ class EphemeralContainer extends \Moonspot\Kubernetes\BaseObject {
      * empty and the container exited with an error. The log output is limited
      * to 2048 bytes or 80 lines, whichever is smaller. Defaults to File.
      * Cannot be updated.
+     * 
+     * Possible enum values:
+     *  - `"FallbackToLogsOnError"` will read the most recent contents of the
+     * container logs for the container status message when the container exits
+     * with an error and the terminationMessagePath has no contents.
+     *  - `"File"` is the default behavior and will set the container status
+     * message to the contents of the container's terminationMessagePath when
+     * the container exits.
      */
     public ?string $terminationMessagePolicy = null;
 
@@ -175,7 +195,8 @@ class EphemeralContainer extends \Moonspot\Kubernetes\BaseObject {
     public ?VolumeDeviceSet $volumeDevices = null;
 
     /**
-     * Pod volumes to mount into the container's filesystem. Cannot be updated.
+     * Pod volumes to mount into the container's filesystem. Subpath mounts are
+     * not allowed for ephemeral containers. Cannot be updated.
      */
     public ?VolumeMountSet $volumeMounts = null;
 

@@ -31,6 +31,11 @@ class JobCondition extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Type of job condition, Complete or Failed.
+     * 
+     * Possible enum values:
+     *  - `"Complete"` means the job has completed its execution.
+     *  - `"Failed"` means the job has failed its execution.
+     *  - `"Suspended"` means the job has been suspended.
      */
     public string $type;
 

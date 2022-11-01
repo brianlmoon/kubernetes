@@ -82,9 +82,6 @@ class Volume extends \Moonspot\Kubernetes\BaseObject {
      * 
      * A pod can use both types of ephemeral volumes and persistent volumes at
      * the same time.
-     * 
-     * This is a beta feature and only available when the
-     * GenericEphemeralVolume feature gate is enabled.
      */
     public ?EphemeralVolumeSource $ephemeral = null;
 

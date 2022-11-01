@@ -36,8 +36,8 @@ class PolicyRule extends \Moonspot\Kubernetes\BaseObject {
     public ?StringSet $resources = null;
 
     /**
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and
-     * AttributeRestrictions contained in this rule. '*' represents all verbs.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained
+     * in this rule. '*' represents all verbs.
      */
     public StringSet $verbs;
 

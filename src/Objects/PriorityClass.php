@@ -6,7 +6,7 @@ class PriorityClass extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'PriorityClass';
 
-    public const VERSION = 'scheduling.k8s.io/v1alpha1';
+    public const VERSION = 'scheduling.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

@@ -2,11 +2,10 @@
 
 namespace Moonspot\Kubernetes\Objects;
 
-class Handler extends \Moonspot\Kubernetes\BaseObject {
+class LifecycleHandler extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * One and only one of the following should be specified. Exec specifies
-     * the action to take.
+     * Exec specifies the action to take.
      */
     public ?ExecAction $exec = null;
 
@@ -16,8 +15,9 @@ class Handler extends \Moonspot\Kubernetes\BaseObject {
     public ?HTTPGetAction $httpGet = null;
 
     /**
-     * TCPSocket specifies an action involving a TCP port. TCP hooks not yet
-     * supported
+     * Deprecated. TCPSocket is NOT supported as a LifecycleHandler and kept
+     * for the backward compatibility. There are no validation of this field
+     * and lifecycle hooks will fail in runtime when tcp handler is specified.
      */
     public ?TCPSocketAction $tcpSocket = null;
 

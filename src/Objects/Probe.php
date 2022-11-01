@@ -5,8 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 class Probe extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * One and only one of the following should be specified. Exec specifies
-     * the action to take.
+     * Exec specifies the action to take.
      */
     public ?ExecAction $exec = null;
 
@@ -15,6 +14,12 @@ class Probe extends \Moonspot\Kubernetes\BaseObject {
      * having succeeded. Defaults to 3. Minimum value is 1.
      */
     public ?int $failureThreshold = null;
+
+    /**
+     * GRPC specifies an action involving a GRPC port. This is an alpha field
+     * and requires enabling GRPCContainerProbe feature gate.
+     */
+    public ?GRPCAction $grpc = null;
 
     /**
      * HTTPGet specifies the http request to perform.
@@ -42,8 +47,7 @@ class Probe extends \Moonspot\Kubernetes\BaseObject {
     public ?int $successThreshold = null;
 
     /**
-     * TCPSocket specifies an action involving a TCP port. TCP hooks not yet
-     * supported
+     * TCPSocket specifies an action involving a TCP port.
      */
     public ?TCPSocketAction $tcpSocket = null;
 
@@ -72,6 +76,7 @@ class Probe extends \Moonspot\Kubernetes\BaseObject {
 
     public function __construct() {
         $this->exec = new ExecAction();
+        $this->grpc = new GRPCAction();
         $this->httpGet = new HTTPGetAction();
         $this->tcpSocket = new TCPSocketAction();
     }

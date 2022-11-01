@@ -31,7 +31,8 @@ class DeploymentStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?int $observedGeneration = null;
 
     /**
-     * Total number of ready pods targeted by this deployment.
+     * readyReplicas is the number of pods targeted by this Deployment with a
+     * Ready Condition.
      */
     public ?int $readyReplicas = null;
 

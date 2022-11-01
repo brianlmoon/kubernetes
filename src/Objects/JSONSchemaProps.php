@@ -5,6 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 use Moonspot\Kubernetes\Objects\Sets\JSONSchemaPropsSet;
 use Moonspot\Kubernetes\Objects\Sets\JSONSet;
 use Moonspot\Kubernetes\Objects\Sets\StringSet;
+use Moonspot\Kubernetes\Objects\Sets\ValidationRuleSet;
 
 class JSONSchemaProps extends \Moonspot\Kubernetes\BaseObject {
 
@@ -249,6 +250,14 @@ class JSONSchemaProps extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?bool $x_kubernetes_preserve_unknown_fields = null;
 
+    /**
+     * x-kubernetes-validations describes a list of validation rules written in
+     * the CEL expression language. This field is an alpha-level. Using this
+     * field requires the feature gate `CustomResourceValidationExpressions` to
+     * be enabled.
+     */
+    public ?ValidationRuleSet $x_kubernetes_validations = null;
+
     public function __construct() {
         $this->additionalItems = new JSONSchemaPropsOrBool();
         $this->additionalProperties = new JSONSchemaPropsOrBool();
@@ -263,5 +272,6 @@ class JSONSchemaProps extends \Moonspot\Kubernetes\BaseObject {
         $this->oneOf = new JSONSchemaPropsSet();
         $this->required = new StringSet();
         $this->x_kubernetes_list_map_keys = new StringSet();
+        $this->x_kubernetes_validations = new ValidationRuleSet();
     }
 }

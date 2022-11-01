@@ -8,11 +8,10 @@ class StatefulSetStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Total number of available pods (ready for at least minReadySeconds)
-     * targeted by this statefulset. This is an alpha field and requires
-     * enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when
-     * graduating to beta
+     * targeted by this statefulset. This is a beta field and enabled/disabled
+     * by StatefulSetMinReadySeconds feature gate.
      */
-    public ?int $availableReplicas = null;
+    public int $availableReplicas;
 
     /**
      * collisionCount is the count of hash collisions for the StatefulSet. The
@@ -48,8 +47,8 @@ class StatefulSetStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?int $observedGeneration = null;
 
     /**
-     * readyReplicas is the number of Pods created by the StatefulSet
-     * controller that have a Ready Condition.
+     * readyReplicas is the number of pods created for this StatefulSet with a
+     * Ready Condition.
      */
     public ?int $readyReplicas = null;
 

@@ -30,8 +30,7 @@ class IngressClassParametersReference extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Scope represents if this refers to a cluster or namespace scoped
-     * resource. This may be set to "Cluster" (default) or "Namespace". Field
-     * can be enabled with IngressClassNamespacedParams feature gate.
+     * resource. This may be set to "Cluster" (default) or "Namespace".
      */
     public ?string $scope = null;
 }

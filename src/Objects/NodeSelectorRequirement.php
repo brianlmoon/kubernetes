@@ -14,6 +14,14 @@ class NodeSelectorRequirement extends \Moonspot\Kubernetes\BaseObject {
     /**
      * Represents a key's relationship to a set of values. Valid operators are
      * In, NotIn, Exists, DoesNotExist. Gt, and Lt.
+     * 
+     * Possible enum values:
+     *  - `"DoesNotExist"`
+     *  - `"Exists"`
+     *  - `"Gt"`
+     *  - `"In"`
+     *  - `"Lt"`
+     *  - `"NotIn"`
      */
     public string $operator;
 

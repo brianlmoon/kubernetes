@@ -55,7 +55,8 @@ class Secret extends \Moonspot\Kubernetes\BaseObject {
     public ?array $stringData = null;
 
     /**
-     * Used to facilitate programmatic handling of secret data.
+     * Used to facilitate programmatic handling of secret data. More info:
+     * https://kubernetes.io/docs/concepts/configuration/secret/#secret-types
      */
     public ?string $type = null;
 
