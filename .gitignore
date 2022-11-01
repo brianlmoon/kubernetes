@@ -1,0 +1,3 @@
+/build/kubernetes
+/build/swagger-*.json
+/vendor

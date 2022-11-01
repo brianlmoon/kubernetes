@@ -1,0 +1,42 @@
+{
+    "name": "moonspot/kubernetes",
+    "type": "library",
+    "description": "Library of classes for composing Kubernetes objects",
+    "config": {
+        "discard-changes": true,
+        "sort-packages": true
+    },
+    "require-dev": {
+        "php-parallel-lint/php-parallel-lint": "^1.2",
+        "phpunit/phpunit": "^9.4"
+    },
+    "require": {
+        "php": ">=8.0",
+        "exsyst/swagger": "^0.4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Moonspot\\Kubernetes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Moonspot\\Kubernetes\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phan": [
+            "phan -p"
+        ],
+        "test": [
+            "@lint",
+            "phpunit --colors=never"
+        ],
+        "lint": [
+            "parallel-lint src/ tests/"
+        ],
+        "fix": [
+            "~/.composer/vendor/bin/php-cs-fixer fix --config .php_cs.dist src tests"
+        ]
+    }
+}
