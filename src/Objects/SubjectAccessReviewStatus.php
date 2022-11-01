@@ -1,0 +1,34 @@
+<?php
+
+namespace Moonspot\Kubernetes\Objects;
+
+class SubjectAccessReviewStatus extends \Moonspot\Kubernetes\BaseObject {
+
+    /**
+     * Allowed is required. True if the action would be allowed, false
+     * otherwise.
+     */
+    public bool $allowed;
+
+    /**
+     * Denied is optional. True if the action would be denied, otherwise false.
+     * If both allowed is false and denied is false, then the authorizer has no
+     * opinion on whether to authorize the action. Denied may not be true if
+     * Allowed is true.
+     */
+    public ?bool $denied = null;
+
+    /**
+     * EvaluationError is an indication that some error occurred during the
+     * authorization check. It is entirely possible to get an error and be able
+     * to continue determine authorization status in spite of it. For instance,
+     * RBAC can be missing a role, but enough roles are still present and bound
+     * to reason about the request.
+     */
+    public ?string $evaluationError = null;
+
+    /**
+     * Reason is optional.  It indicates why a request was allowed or denied.
+     */
+    public ?string $reason = null;
+}
