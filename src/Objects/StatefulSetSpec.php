@@ -10,8 +10,6 @@ class StatefulSetSpec extends \Moonspot\Kubernetes\BaseObject {
      * Minimum number of seconds for which a newly created pod should be ready
      * without any of its container crashing for it to be considered available.
      * Defaults to 0 (pod will be considered available as soon as it is ready)
-     * This is an alpha field and requires enabling StatefulSetMinReadySeconds
-     * feature gate.
      */
     public ?int $minReadySeconds = null;
 

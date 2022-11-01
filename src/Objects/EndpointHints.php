@@ -8,7 +8,7 @@ class EndpointHints extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * forZones indicates the zone(s) this endpoint should be consumed by to
-     * enable topology aware routing. May contain a maximum of 8 entries.
+     * enable topology aware routing.
      */
     public ?ForZoneSet $forZones = null;
 

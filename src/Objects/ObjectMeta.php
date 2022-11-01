@@ -17,15 +17,6 @@ class ObjectMeta extends \Moonspot\Kubernetes\BaseObject {
     public ?array $annotations = null;
 
     /**
-     * Deprecated: ClusterName is a legacy field that was always cleared by the
-     * system and never used; it will be removed completely in 1.25.
-     * 
-     * The name in the go struct is changed to help clients detect accidental
-     * use.
-     */
-    public ?string $clusterName = null;
-
-    /**
      * CreationTimestamp is a timestamp representing the server time when this
      * object was created. It is not guaranteed to be set in happens-before
      * order across separate operations. Clients may not set this value. It is

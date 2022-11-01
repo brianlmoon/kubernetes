@@ -6,12 +6,12 @@ class Event extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'Event';
 
-    public const VERSION = 'events.k8s.io/v1beta1';
+    public const VERSION = 'events.k8s.io/v1';
 
     /**
      * action is what action was taken/failed regarding to the regarding
-     * object. It is machine-readable. This field can have at most 128
-     * characters.
+     * object. It is machine-readable. This field cannot be empty for new
+     * Events and it can have at most 128 characters.
      */
     public ?string $action = null;
 
@@ -75,8 +75,8 @@ class Event extends \Moonspot\Kubernetes\BaseObject {
     public ?string $note = null;
 
     /**
-     * reason is why the action was taken. It is human-readable. This field can
-     * have at most 128 characters.
+     * reason is why the action was taken. It is human-readable. This field
+     * cannot be empty for new Events and it can have at most 128 characters.
      */
     public ?string $reason = null;
 
@@ -116,7 +116,8 @@ class Event extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * type is the type of this event (Normal, Warning), new types could be
-     * added in the future. It is machine-readable.
+     * added in the future. It is machine-readable. This field cannot be empty
+     * for new Events.
      */
     public ?string $type = null;
 

@@ -2,11 +2,11 @@
 
 namespace Moonspot\Kubernetes\Objects;
 
-class PodSecurityPolicy extends \Moonspot\Kubernetes\BaseObject {
+class ClusterCIDR extends \Moonspot\Kubernetes\BaseObject {
 
-    public const KIND = 'PodSecurityPolicy';
+    public const KIND = 'ClusterCIDR';
 
-    public const VERSION = 'policy/v1beta1';
+    public const VERSION = 'networking.k8s.io/v1alpha1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -31,14 +31,15 @@ class PodSecurityPolicy extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * spec defines the policy enforced.
+     * Spec is the desired state of the ClusterCIDR. More info:
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      */
-    public ?PodSecurityPolicySpec $spec = null;
+    public ?ClusterCIDRSpec $spec = null;
 
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
         $this->metadata = new ObjectMeta();
-        $this->spec = new PodSecurityPolicySpec();
+        $this->spec = new ClusterCIDRSpec();
     }
 }

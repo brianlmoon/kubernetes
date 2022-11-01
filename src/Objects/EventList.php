@@ -8,7 +8,7 @@ class EventList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'EventList';
 
-    public const VERSION = 'events.k8s.io/v1beta1';
+    public const VERSION = 'events.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

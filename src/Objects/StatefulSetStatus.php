@@ -8,8 +8,7 @@ class StatefulSetStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Total number of available pods (ready for at least minReadySeconds)
-     * targeted by this statefulset. This is a beta field and enabled/disabled
-     * by StatefulSetMinReadySeconds feature gate.
+     * targeted by this statefulset.
      */
     public ?int $availableReplicas = null;
 

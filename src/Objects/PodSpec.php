@@ -66,8 +66,7 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * debugging. This list cannot be specified when creating a pod, and it
      * cannot be modified by updating the pod spec. In order to add an
      * ephemeral container to an existing pod, use the pod's
-     * ephemeralcontainers subresource. This field is beta-level and available
-     * on clusters that haven't disabled the EphemeralContainers feature gate.
+     * ephemeralcontainers subresource.
      */
     public ?EphemeralContainerSet $ephemeralContainers = null;
 
@@ -94,6 +93,19 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * Use the host's pid namespace. Optional: Default to false.
      */
     public ?bool $hostPID = null;
+
+    /**
+     * Use the host's user namespace. Optional: Default to true. If set to true
+     * or not present, the pod will be run in the host user namespace, useful
+     * for when the pod needs a feature only available to the host user
+     * namespace, such as loading a kernel module with CAP_SYS_MODULE. When set
+     * to false, a new userns is created for the pod. Setting false is useful
+     * for mitigating container breakout vulnerabilities even allowing users to
+     * run their containers as root without actually having root privileges on
+     * the host. This field is alpha-level and is only honored by servers that
+     * enable the UserNamespacesSupport feature.
+     */
+    public ?bool $hostUsers = null;
 
     /**
      * Specifies the hostname of the Pod If not specified, the pod's hostname
@@ -150,7 +162,8 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * -securityContext.windowsOptions
      * 
      * If the OS field is set to windows, following fields must be unset: -
-     * spec.hostPID - spec.hostIPC - spec.securityContext.seLinuxOptions -
+     * spec.hostPID - spec.hostIPC - spec.hostUsers -
+     * spec.securityContext.seLinuxOptions -
      * spec.securityContext.seccompProfile - spec.securityContext.fsGroup -
      * spec.securityContext.fsGroupChangePolicy - spec.securityContext.sysctls
      * - spec.shareProcessNamespace - spec.securityContext.runAsUser -
@@ -164,8 +177,7 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * spec.containers[*].securityContext.allowPrivilegeEscalation -
      * spec.containers[*].securityContext.procMount -
      * spec.containers[*].securityContext.runAsUser -
-     * spec.containers[*].securityContext.runAsGroup This is a beta field and
-     * requires the IdentifyPodOS feature
+     * spec.containers[*].securityContext.runAsGroup
      */
     public ?PodOS $os = null;
 

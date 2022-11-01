@@ -9,7 +9,7 @@ class EndpointSlice extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'EndpointSlice';
 
-    public const VERSION = 'discovery.k8s.io/v1beta1';
+    public const VERSION = 'discovery.k8s.io/v1';
 
     /**
      * addressType specifies the type of address carried by this EndpointSlice.

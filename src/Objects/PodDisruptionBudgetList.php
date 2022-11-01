@@ -8,7 +8,7 @@ class PodDisruptionBudgetList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'PodDisruptionBudgetList';
 
-    public const VERSION = 'policy/v1beta1';
+    public const VERSION = 'policy/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -19,7 +19,7 @@ class PodDisruptionBudgetList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * items list individual PodDisruptionBudget objects
+     * Items is a list of PodDisruptionBudgets
      */
     public PodDisruptionBudgetSet $items;
 

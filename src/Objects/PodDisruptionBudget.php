@@ -6,7 +6,7 @@ class PodDisruptionBudget extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'PodDisruptionBudget';
 
-    public const VERSION = 'policy/v1beta1';
+    public const VERSION = 'policy/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

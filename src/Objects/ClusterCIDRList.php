@@ -2,13 +2,13 @@
 
 namespace Moonspot\Kubernetes\Objects;
 
-use Moonspot\Kubernetes\Objects\Sets\PodSecurityPolicySet;
+use Moonspot\Kubernetes\Objects\Sets\ClusterCIDRSet;
 
-class PodSecurityPolicyList extends \Moonspot\Kubernetes\BaseObject {
+class ClusterCIDRList extends \Moonspot\Kubernetes\BaseObject {
 
-    public const KIND = 'PodSecurityPolicyList';
+    public const KIND = 'ClusterCIDRList';
 
-    public const VERSION = 'policy/v1beta1';
+    public const VERSION = 'networking.k8s.io/v1alpha1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -19,9 +19,9 @@ class PodSecurityPolicyList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * items is a list of schema objects.
+     * Items is the list of ClusterCIDRs.
      */
-    public PodSecurityPolicySet $items;
+    public ClusterCIDRSet $items;
 
     /**
      * Kind is a string value representing the REST resource this object
@@ -32,7 +32,7 @@ class PodSecurityPolicyList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $kind = null;
 
     /**
-     * Standard list metadata. More info:
+     * Standard object's metadata. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      */
     public ?ListMeta $metadata = null;
@@ -40,7 +40,7 @@ class PodSecurityPolicyList extends \Moonspot\Kubernetes\BaseObject {
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
-        $this->items = new PodSecurityPolicySet();
+        $this->items = new ClusterCIDRSet();
         $this->metadata = new ListMeta();
     }
 }

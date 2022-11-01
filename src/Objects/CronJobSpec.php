@@ -14,8 +14,8 @@ class CronJobSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?string $concurrencyPolicy = null;
 
     /**
-     * The number of failed finished jobs to retain. This is a pointer to
-     * distinguish between explicit zero and not specified. Defaults to 1.
+     * The number of failed finished jobs to retain. Value must be non-negative
+     * integer. Defaults to 1.
      */
     public ?int $failedJobsHistoryLimit = null;
 
@@ -37,8 +37,8 @@ class CronJobSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?int $startingDeadlineSeconds = null;
 
     /**
-     * The number of successful finished jobs to retain. This is a pointer to
-     * distinguish between explicit zero and not specified. Defaults to 3.
+     * The number of successful finished jobs to retain. Value must be
+     * non-negative integer. Defaults to 3.
      */
     public ?int $successfulJobsHistoryLimit = null;
 
@@ -49,11 +49,21 @@ class CronJobSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?bool $suspend = null;
 
     /**
-     * The time zone for the given schedule, see
+     * The time zone name for the given schedule, see
      * https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not
-     * specified, this will rely on the time zone of the
-     * kube-controller-manager process. ALPHA: This field is in alpha and must
-     * be enabled via the `CronJobTimeZone` feature gate.
+     * specified, this will default to the time zone of the
+     * kube-controller-manager process. The set of valid time zone names and
+     * the time zone offset is loaded from the system-wide time zone database
+     * by the API server during CronJob validation and the controller manager
+     * during execution. If no system-wide time zone database can be found a
+     * bundled version of the database is used instead. If the time zone name
+     * becomes invalid during the lifetime of a CronJob or due to a change in
+     * host configuration, the controller will stop creating new new Jobs and
+     * will create a system event with the reason UnknownTimeZone. More
+     * information can be found in
+     * https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones
+     * This is beta field and must be enabled via the `CronJobTimeZone` feature
+     * gate.
      */
     public ?string $timeZone = null;
 

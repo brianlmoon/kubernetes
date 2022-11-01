@@ -6,7 +6,7 @@ class RuntimeClass extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'RuntimeClass';
 
-    public const VERSION = 'node.k8s.io/v1beta1';
+    public const VERSION = 'node.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -45,7 +45,7 @@ class RuntimeClass extends \Moonspot\Kubernetes\BaseObject {
     /**
      * Overhead represents the resource overhead associated with running a pod
      * for a given RuntimeClass. For more details, see
-     * https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md
+     *  https://kubernetes.io/docs/concepts/scheduling-eviction/pod-overhead/
      */
     public ?Overhead $overhead = null;
 

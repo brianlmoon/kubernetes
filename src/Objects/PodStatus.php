@@ -21,9 +21,7 @@ class PodStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?ContainerStatusSet $containerStatuses = null;
 
     /**
-     * Status for any ephemeral containers that have run in this pod. This
-     * field is beta-level and available on clusters that haven't disabled the
-     * EphemeralContainers feature gate.
+     * Status for any ephemeral containers that have run in this pod.
      */
     public ?ContainerStatusSet $ephemeralContainerStatuses = null;
 

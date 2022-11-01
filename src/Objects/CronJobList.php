@@ -8,7 +8,7 @@ class CronJobList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'CronJobList';
 
-    public const VERSION = 'batch/v1beta1';
+    public const VERSION = 'batch/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

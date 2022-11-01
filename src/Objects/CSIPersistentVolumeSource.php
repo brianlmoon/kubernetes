@@ -7,10 +7,10 @@ class CSIPersistentVolumeSource extends \Moonspot\Kubernetes\BaseObject {
     /**
      * controllerExpandSecretRef is a reference to the secret object containing
      * sensitive information to pass to the CSI driver to complete the CSI
-     * ControllerExpandVolume call. This is an alpha field and requires
-     * enabling ExpandCSIVolumes feature gate. This field is optional, and may
-     * be empty if no secret is required. If the secret object contains more
-     * than one secret, all secrets are passed.
+     * ControllerExpandVolume call. This is an beta field and requires enabling
+     * ExpandCSIVolumes feature gate. This field is optional, and may be empty
+     * if no secret is required. If the secret object contains more than one
+     * secret, all secrets are passed.
      */
     public ?SecretReference $controllerExpandSecretRef = null;
 
@@ -33,6 +33,16 @@ class CSIPersistentVolumeSource extends \Moonspot\Kubernetes\BaseObject {
      * operating system. Ex. "ext4", "xfs", "ntfs".
      */
     public ?string $fsType = null;
+
+    /**
+     * nodeExpandSecretRef is a reference to the secret object containing
+     * sensitive information to pass to the CSI driver to complete the CSI
+     * NodeExpandVolume call. This is an alpha field and requires enabling
+     * CSINodeExpandSecret feature gate. This field is optional, may be omitted
+     * if no secret is required. If the secret object contains more than one
+     * secret, all secrets are passed.
+     */
+    public ?SecretReference $nodeExpandSecretRef = null;
 
     /**
      * nodePublishSecretRef is a reference to the secret object containing
@@ -73,6 +83,7 @@ class CSIPersistentVolumeSource extends \Moonspot\Kubernetes\BaseObject {
     public function __construct() {
         $this->controllerExpandSecretRef = new SecretReference();
         $this->controllerPublishSecretRef = new SecretReference();
+        $this->nodeExpandSecretRef = new SecretReference();
         $this->nodePublishSecretRef = new SecretReference();
         $this->nodeStageSecretRef = new SecretReference();
     }
