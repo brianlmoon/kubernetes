@@ -7,5 +7,5 @@ git checkout -b $1 && \
 php ./build/build.php --version $1 && \
 git add src/Objects && \
 git commit -m "Kubernetes $1" && \
-git push origin $1 && \
-git checkout main
+git checkout main && \
+git merge $1
