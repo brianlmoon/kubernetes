@@ -11,7 +11,7 @@ class StatefulSetStatus extends \Moonspot\Kubernetes\BaseObject {
      * targeted by this statefulset. This is a beta field and enabled/disabled
      * by StatefulSetMinReadySeconds feature gate.
      */
-    public int $availableReplicas;
+    public ?int $availableReplicas = null;
 
     /**
      * collisionCount is the count of hash collisions for the StatefulSet. The

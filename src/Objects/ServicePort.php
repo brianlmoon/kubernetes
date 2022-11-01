@@ -8,7 +8,7 @@ class ServicePort extends \Moonspot\Kubernetes\BaseObject {
      * The application protocol for this port. This field follows standard
      * Kubernetes label syntax. Un-prefixed names are reserved for IANA
      * standard service names (as per RFC-6335 and
-     * http://www.iana.org/assignments/service-names). Non-standard protocols
+     * https://www.iana.org/assignments/service-names). Non-standard protocols
      * should use prefixed names such as mycompany.com/my-custom-protocol.
      */
     public ?string $appProtocol = null;
@@ -43,11 +43,6 @@ class ServicePort extends \Moonspot\Kubernetes\BaseObject {
     /**
      * The IP protocol for this port. Supports "TCP", "UDP", and "SCTP".
      * Default is TCP.
-     * 
-     * Possible enum values:
-     *  - `"SCTP"` is the SCTP protocol.
-     *  - `"TCP"` is the TCP protocol.
-     *  - `"UDP"` is the UDP protocol.
      */
     public ?string $protocol = null;
 

@@ -5,37 +5,34 @@ namespace Moonspot\Kubernetes\Objects;
 class PersistentVolumeClaimCondition extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Last time we probed the condition.
+     * lastProbeTime is the time we probed the condition.
      */
     public ?Time $lastProbeTime = null;
 
     /**
-     * Last time the condition transitioned from one status to another.
+     * lastTransitionTime is the time the condition transitioned from one
+     * status to another.
      */
     public ?Time $lastTransitionTime = null;
 
     /**
-     * Human-readable message indicating details about last transition.
+     * message is the human-readable message indicating details about last
+     * transition.
      */
     public ?string $message = null;
 
     /**
-     * Unique, this should be a short, machine understandable string that gives
-     * the reason for condition's last transition. If it reports
-     * "ResizeStarted" that means the underlying persistent volume is being
-     * resized.
+     * reason is a unique, this should be a short, machine understandable
+     * string that gives the reason for condition's last transition. If it
+     * reports "ResizeStarted" that means the underlying persistent volume is
+     * being resized.
      */
     public ?string $reason = null;
 
 
     public string $status;
 
-    /**
-     * Possible enum values:
-     *  - `"FileSystemResizePending"` - controller resize is finished and a
-     * file system resize is pending on node
-     *  - `"Resizing"` - a user trigger resize of pvc has been started
-     */
+
     public string $type;
 
     public function __construct() {

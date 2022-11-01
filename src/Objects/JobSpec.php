@@ -36,9 +36,9 @@ class JobSpec extends \Moonspot\Kubernetes\BaseObject {
      * Pod name takes the form `$(job-name)-$(index)-$(random-string)`, the Pod
      * hostname takes the form `$(job-name)-$(index)`.
      * 
-     * This field is beta-level. More completion modes can be added in the
-     * future. If the Job controller observes a mode that it doesn't recognize,
-     * the controller skips updates for the Job.
+     * More completion modes can be added in the future. If the Job controller
+     * observes a mode that it doesn't recognize, which is possible during
+     * upgrades due to version skew, the controller skips updates for the Job.
      */
     public ?string $completionMode = null;
 
@@ -91,9 +91,6 @@ class JobSpec extends \Moonspot\Kubernetes\BaseObject {
      * handle this. Suspending a Job will reset the StartTime field of the Job,
      * effectively resetting the ActiveDeadlineSeconds timer too. Defaults to
      * false.
-     * 
-     * This field is beta-level, gated by SuspendJob feature flag (enabled by
-     * default).
      */
     public ?bool $suspend = null;
 

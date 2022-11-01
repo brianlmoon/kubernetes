@@ -23,8 +23,7 @@ class CSIStorageCapacity extends \Moonspot\Kubernetes\BaseObject {
      * 
      * The semantic is currently (CSI spec 1.2) defined as: The available
      * capacity, in bytes, of the storage that can be used to provision
-     * volumes. If not set, that information is currently unavailable and
-     * treated like zero capacity.
+     * volumes. If not set, that information is currently unavailable.
      */
     public ?Quantity $capacity = null;
 

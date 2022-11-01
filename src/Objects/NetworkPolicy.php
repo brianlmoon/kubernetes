@@ -35,10 +35,17 @@ class NetworkPolicy extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?NetworkPolicySpec $spec = null;
 
+    /**
+     * Status is the current state of the NetworkPolicy. More info:
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+     */
+    public ?NetworkPolicyStatus $status = null;
+
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
         $this->metadata = new ObjectMeta();
         $this->spec = new NetworkPolicySpec();
+        $this->status = new NetworkPolicyStatus();
     }
 }

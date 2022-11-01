@@ -16,7 +16,7 @@ class NodeSystemInfo extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * ContainerRuntime Version reported by the node through runtime remote API
-     * (e.g. docker://1.5.0).
+     * (e.g. containerd://1.4.2).
      */
     public string $containerRuntimeVersion;
 

@@ -19,7 +19,7 @@ class PersistentVolumeClaimList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * A list of persistent volume claims. More info:
+     * items is a list of persistent volume claims. More info:
      * https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
      */
     public PersistentVolumeClaimSet $items;

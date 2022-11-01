@@ -31,11 +31,6 @@ class ContainerPort extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Protocol for port. Must be UDP, TCP, or SCTP. Defaults to "TCP".
-     * 
-     * Possible enum values:
-     *  - `"SCTP"` is the SCTP protocol.
-     *  - `"TCP"` is the TCP protocol.
-     *  - `"UDP"` is the UDP protocol.
      */
     public ?string $protocol = null;
 }

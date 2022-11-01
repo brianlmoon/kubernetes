@@ -5,7 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 class VolumeNodeAffinity extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Required specifies hard node constraints that must be met.
+     * required specifies hard node constraints that must be met.
      */
     public ?NodeSelector $required = null;
 

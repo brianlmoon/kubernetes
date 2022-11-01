@@ -50,19 +50,6 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * parameters given in DNSConfig will be merged with the policy selected
      * with DNSPolicy. To have DNS options set along with hostNetwork, you have
      * to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.
-     * 
-     * Possible enum values:
-     *  - `"ClusterFirst"` indicates that the pod should use cluster DNS first
-     * unless hostNetwork is true, if it is available, then fall back on the
-     * default (as determined by kubelet) DNS settings.
-     *  - `"ClusterFirstWithHostNet"` indicates that the pod should use cluster
-     * DNS first, if it is available, then fall back on the default (as
-     * determined by kubelet) DNS settings.
-     *  - `"Default"` indicates that the pod should use the default (as
-     * determined by kubelet) DNS settings.
-     *  - `"None"` indicates that the pod should use empty DNS settings. DNS
-     * parameters such as nameservers and search paths should be defined via
-     * DNSConfig.
      */
     public ?string $dnsPolicy = null;
 
@@ -118,8 +105,7 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * ImagePullSecrets is an optional list of references to secrets in the
      * same namespace to use for pulling any of the images used by this
      * PodSpec. If specified, these secrets will be passed to individual puller
-     * implementations for them to use. For example, in the case of docker,
-     * only DockerConfig type secrets are honored. More info:
+     * implementations for them to use. More info:
      * https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod
      */
     public ?LocalObjectReferenceSet $imagePullSecrets = null;
@@ -178,7 +164,7 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * spec.containers[*].securityContext.allowPrivilegeEscalation -
      * spec.containers[*].securityContext.procMount -
      * spec.containers[*].securityContext.runAsUser -
-     * spec.containers[*].securityContext.runAsGroup This is an alpha field and
+     * spec.containers[*].securityContext.runAsGroup This is a beta field and
      * requires the IdentifyPodOS feature
      */
     public ?PodOS $os = null;
@@ -194,16 +180,13 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * value defined in the corresponding RuntimeClass, otherwise it will
      * remain unset and treated as zero. More info:
      * https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md
-     * This field is beta-level as of Kubernetes v1.18, and is only honored by
-     * servers that enable the PodOverhead feature.
      */
     public ?array $overhead = null;
 
     /**
      * PreemptionPolicy is the Policy for preempting pods with lower priority.
      * One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if
-     * unset. This field is beta-level, gated by the NonPreemptingPriority
-     * feature-gate.
+     * unset.
      */
     public ?string $preemptionPolicy = null;
 
@@ -238,11 +221,6 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * Restart policy for all containers within the pod. One of Always,
      * OnFailure, Never. Default to Always. More info:
      * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
-     * 
-     * Possible enum values:
-     *  - `"Always"`
-     *  - `"Never"`
-     *  - `"OnFailure"`
      */
     public ?string $restartPolicy = null;
 
@@ -253,8 +231,7 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * empty, the "legacy" RuntimeClass will be used, which is an implicit
      * class with an empty definition that uses the default runtime handler.
      * More info:
-     * https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class This is
-     * a beta feature as of Kubernetes v1.14.
+     * https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class
      */
     public ?string $runtimeClassName = null;
 

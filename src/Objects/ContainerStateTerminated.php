@@ -5,7 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 class ContainerStateTerminated extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Container's ID in the format 'docker://<container_id>'
+     * Container's ID in the format '<type>://<container_id>'
      */
     public ?string $containerID = null;
 

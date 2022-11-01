@@ -5,22 +5,23 @@ namespace Moonspot\Kubernetes\Objects;
 class VolumeProjection extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * information about the configMap data to project
+     * configMap information about the configMap data to project
      */
     public ?ConfigMapProjection $configMap = null;
 
     /**
-     * information about the downwardAPI data to project
+     * downwardAPI information about the downwardAPI data to project
      */
     public ?DownwardAPIProjection $downwardAPI = null;
 
     /**
-     * information about the secret data to project
+     * secret information about the secret data to project
      */
     public ?SecretProjection $secret = null;
 
     /**
-     * information about the serviceAccountToken data to project
+     * serviceAccountToken is information about the serviceAccountToken data to
+     * project
      */
     public ?ServiceAccountTokenProjection $serviceAccountToken = null;
 

@@ -31,14 +31,14 @@ class PersistentVolume extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * Spec defines a specification of a persistent volume owned by the
+     * spec defines a specification of a persistent volume owned by the
      * cluster. Provisioned by an administrator. More info:
      * https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
      */
     public ?PersistentVolumeSpec $spec = null;
 
     /**
-     * Status represents the current information/status for the persistent
+     * status represents the current information/status for the persistent
      * volume. Populated by the system. Read-only. More info:
      * https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistent-volumes
      */

@@ -36,15 +36,6 @@ class StatefulSetSpec extends \Moonspot\Kubernetes\BaseObject {
      * opposite order. The alternative policy is `Parallel` which will create
      * pods in parallel to match the desired scale without waiting, and on
      * scale down will delete all pods at once.
-     * 
-     * Possible enum values:
-     *  - `"OrderedReady"` will create pods in strictly increasing order on
-     * scale up and strictly decreasing order on scale down, progressing only
-     * when the previous pod is ready or terminated. At most one pod will be
-     * changed at any time.
-     *  - `"Parallel"` will create and delete pods as soon as the stateful set
-     * replica count is changed, and will not wait for pods to be ready or
-     * complete termination.
      */
     public ?string $podManagementPolicy = null;
 

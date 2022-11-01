@@ -16,8 +16,7 @@ class PodAffinityTerm extends \Moonspot\Kubernetes\BaseObject {
      * term is applied to the union of the namespaces selected by this field
      * and the ones listed in the namespaces field. null selector and null or
      * empty namespaces list means "this pod's namespace". An empty selector
-     * ({}) matches all namespaces. This field is beta-level and is only
-     * honored when PodAffinityNamespaceSelector feature is enabled.
+     * ({}) matches all namespaces.
      */
     public ?LabelSelector $namespaceSelector = null;
 
@@ -25,7 +24,7 @@ class PodAffinityTerm extends \Moonspot\Kubernetes\BaseObject {
      * namespaces specifies a static list of namespace names that the term
      * applies to. The term is applied to the union of the namespaces listed in
      * this field and the ones selected by namespaceSelector. null or empty
-     * namespaces list and null namespaceSelector means "this pod's namespace"
+     * namespaces list and null namespaceSelector means "this pod's namespace".
      */
     public ?StringSet $namespaces = null;
 

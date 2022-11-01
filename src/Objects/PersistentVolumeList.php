@@ -19,7 +19,7 @@ class PersistentVolumeList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * List of persistent volumes. More info:
+     * items is a list of persistent volumes. More info:
      * https://kubernetes.io/docs/concepts/storage/persistent-volumes
      */
     public PersistentVolumeSet $items;

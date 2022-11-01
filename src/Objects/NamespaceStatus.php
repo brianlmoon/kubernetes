@@ -15,11 +15,6 @@ class NamespaceStatus extends \Moonspot\Kubernetes\BaseObject {
     /**
      * Phase is the current lifecycle phase of the namespace. More info:
      * https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
-     * 
-     * Possible enum values:
-     *  - `"Active"` means the namespace is available for use in the system
-     *  - `"Terminating"` means the namespace is undergoing graceful
-     * termination
      */
     public ?string $phase = null;
 

@@ -12,8 +12,8 @@ use Moonspot\Kubernetes\Objects\Sets\VolumeMountSet;
 class Container extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Arguments to the entrypoint. The docker image's CMD is used if this is
-     * not provided. Variable references $(VAR_NAME) are expanded using the
+     * Arguments to the entrypoint. The container image's CMD is used if this
+     * is not provided. Variable references $(VAR_NAME) are expanded using the
      * container's environment. If a variable cannot be resolved, the reference
      * in the input string will be unchanged. Double $$ are reduced to a single
      * $, which allows for escaping the $(VAR_NAME) syntax: i.e. "$$(VAR_NAME)"
@@ -25,7 +25,7 @@ class Container extends \Moonspot\Kubernetes\BaseObject {
     public ?StringSet $args = null;
 
     /**
-     * Entrypoint array. Not executed within a shell. The docker image's
+     * Entrypoint array. Not executed within a shell. The container image's
      * ENTRYPOINT is used if this is not provided. Variable references
      * $(VAR_NAME) are expanded using the container's environment. If a
      * variable cannot be resolved, the reference in the input string will be
@@ -55,7 +55,7 @@ class Container extends \Moonspot\Kubernetes\BaseObject {
     public ?EnvFromSourceSet $envFrom = null;
 
     /**
-     * Docker image name. More info:
+     * Container image name. More info:
      * https://kubernetes.io/docs/concepts/containers/images This field is
      * optional to allow higher level config management to default or override
      * container images in workload controllers like Deployments and
@@ -68,15 +68,6 @@ class Container extends \Moonspot\Kubernetes\BaseObject {
      * Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be
      * updated. More info:
      * https://kubernetes.io/docs/concepts/containers/images#updating-images
-     * 
-     * Possible enum values:
-     *  - `"Always"` means that kubelet always attempts to pull the latest
-     * image. Container will fail If the pull fails.
-     *  - `"IfNotPresent"` means that kubelet pulls if the image isn't present
-     * on disk. Container will fail if the image isn't present and the pull
-     * fails.
-     *  - `"Never"` means that kubelet never pulls an image, but only uses a
-     * local image. Container will fail if the image isn't present
      */
     public ?string $imagePullPolicy = null;
 
@@ -181,14 +172,6 @@ class Container extends \Moonspot\Kubernetes\BaseObject {
      * empty and the container exited with an error. The log output is limited
      * to 2048 bytes or 80 lines, whichever is smaller. Defaults to File.
      * Cannot be updated.
-     * 
-     * Possible enum values:
-     *  - `"FallbackToLogsOnError"` will read the most recent contents of the
-     * container logs for the container status message when the container exits
-     * with an error and the terminationMessagePath has no contents.
-     *  - `"File"` is the default behavior and will set the container status
-     * message to the contents of the container's terminationMessagePath when
-     * the container exits.
      */
     public ?string $terminationMessagePolicy = null;
 

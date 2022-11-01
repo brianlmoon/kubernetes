@@ -49,8 +49,7 @@ class PriorityClass extends \Moonspot\Kubernetes\BaseObject {
     /**
      * PreemptionPolicy is the Policy for preempting pods with lower priority.
      * One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if
-     * unset. This field is beta-level, gated by the NonPreemptingPriority
-     * feature-gate.
+     * unset.
      */
     public ?string $preemptionPolicy = null;
 

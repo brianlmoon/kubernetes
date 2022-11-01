@@ -16,8 +16,8 @@ class Probe extends \Moonspot\Kubernetes\BaseObject {
     public ?int $failureThreshold = null;
 
     /**
-     * GRPC specifies an action involving a GRPC port. This is an alpha field
-     * and requires enabling GRPCContainerProbe feature gate.
+     * GRPC specifies an action involving a GRPC port. This is a beta field and
+     * requires enabling GRPCContainerProbe feature gate.
      */
     public ?GRPCAction $grpc = null;
 
