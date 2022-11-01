@@ -1,7 +1,7 @@
 # Kubernetes Objects
 
 This library builds, imports, and exports Kubernetes objects. The classes are
-all built using the Swagger files in the (kubernetes/kubernetes)[https://github.com/kubernetes/kubernetes]
+all built using the Swagger files in the [kubernetes/kubernetes](https://github.com/kubernetes/kubernetes)
 repository.
 
 The original purpose for building this library was for writing applications
