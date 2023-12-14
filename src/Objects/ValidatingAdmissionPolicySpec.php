@@ -5,6 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 use Moonspot\Kubernetes\Objects\Sets\AuditAnnotationSet;
 use Moonspot\Kubernetes\Objects\Sets\MatchConditionSet;
 use Moonspot\Kubernetes\Objects\Sets\ValidationSet;
+use Moonspot\Kubernetes\Objects\Sets\VariableSet;
 
 class ValidatingAdmissionPolicySpec extends \Moonspot\Kubernetes\BaseObject {
 
@@ -83,11 +84,25 @@ class ValidatingAdmissionPolicySpec extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?ValidationSet $validations = null;
 
+    /**
+     * Variables contain definitions of variables that can be used in
+     * composition of other expressions. Each variable is defined as a named
+     * CEL expression. The variables defined here will be available under
+     * `variables` in other expressions of the policy except MatchConditions
+     * because MatchConditions are evaluated before the rest of the policy.
+     * 
+     * The expression of a variable can refer to other variables defined
+     * earlier in the list but not those after. Thus, Variables must be sorted
+     * by the order of first appearance and acyclic.
+     */
+    public ?VariableSet $variables = null;
+
     public function __construct() {
         $this->auditAnnotations = new AuditAnnotationSet();
         $this->matchConditions = new MatchConditionSet();
         $this->matchConstraints = new MatchResources();
         $this->paramKind = new ParamKind();
         $this->validations = new ValidationSet();
+        $this->variables = new VariableSet();
     }
 }

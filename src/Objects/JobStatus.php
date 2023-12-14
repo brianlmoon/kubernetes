@@ -47,6 +47,19 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?int $failed = null;
 
     /**
+     * FailedIndexes holds the failed indexes when backoffLimitPerIndex=true.
+     * The indexes are represented in the text format analogous as for the
+     * `completedIndexes` field, ie. they are kept as decimal integers
+     * separated by commas. The numbers are listed in increasing order. Three
+     * or more consecutive numbers are compressed and represented by the first
+     * and last element of the series, separated by a hyphen. For example, if
+     * the failed indexes are 1, 3, 4, 5 and 7, they are represented as
+     * "1,3-5,7". This field is alpha-level. It can be used when the
+     * `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).
+     */
+    public ?string $failedIndexes = null;
+
+    /**
      * The number of pods which have a Ready condition.
      * 
      * This field is beta-level. The job controller populates the field when
@@ -67,6 +80,16 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
      * The number of pods which reached phase Succeeded.
      */
     public ?int $succeeded = null;
+
+    /**
+     * The number of pods which are terminating (in phase Pending or Running
+     * and have a deletionTimestamp).
+     * 
+     * This field is alpha-level. The job controller populates the field when
+     * the feature gate JobPodReplacementPolicy is enabled (disabled by
+     * default).
+     */
+    public ?int $terminating = null;
 
     /**
      * uncountedTerminatedPods holds the UIDs of Pods that have terminated but

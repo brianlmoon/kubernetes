@@ -46,7 +46,7 @@ class ValidatingWebhook extends \Moonspot\Kubernetes\BaseObject {
      *      - If failurePolicy=Ignore, the error is ignored and the webhook is
      * skipped
      * 
-     * This is an alpha feature and managed by the
+     * This is a beta feature and managed by the
      * AdmissionWebhookMatchConditions feature gate.
      */
     public ?MatchConditionSet $matchConditions = null;

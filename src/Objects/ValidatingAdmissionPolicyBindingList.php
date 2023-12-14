@@ -8,7 +8,7 @@ class ValidatingAdmissionPolicyBindingList extends \Moonspot\Kubernetes\BaseObje
 
     public const KIND = 'ValidatingAdmissionPolicyBindingList';
 
-    public const VERSION = 'admissionregistration.k8s.io/v1alpha1';
+    public const VERSION = 'admissionregistration.k8s.io/v1beta1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

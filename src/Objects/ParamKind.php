@@ -6,7 +6,7 @@ class ParamKind extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'ParamKind';
 
-    public const VERSION = 'admissionregistration.k8s.io/v1alpha1';
+    public const VERSION = 'admissionregistration.k8s.io/v1beta1';
 
     /**
      * APIVersion is the API group version the resources belong to. In format

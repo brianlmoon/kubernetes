@@ -5,6 +5,25 @@ namespace Moonspot\Kubernetes\Objects;
 class ValidationRule extends \Moonspot\Kubernetes\BaseObject {
 
     /**
+     * fieldPath represents the field path returned when the validation fails.
+     * It must be a relative JSON path (i.e. with array notation) scoped to the
+     * location of this x-kubernetes-validations extension in the schema and
+     * refer to an existing field. e.g. when validation checks if a specific
+     * attribute `foo` under a map `testMap`, the fieldPath could be set to
+     * `.testMap.foo` If the validation checks two lists must have unique
+     * attributes, the fieldPath could be set to either of the list: e.g.
+     * `.testList` It does not support list numeric index. It supports child
+     * operation to refer to an existing field currently. Refer to [JSONPath
+     * support in
+     * Kubernetes](https://kubernetes.io/docs/reference/kubectl/jsonpath/) for
+     * more info. Numeric index of array is not supported. For field name which
+     * contains special characters, use `['specialName']` to refer the field
+     * name. e.g. for attribute `foo.34$` appears in a list `testList`, the
+     * fieldPath could be set to `.testList['foo.34$']`
+     */
+    public ?string $fieldPath = null;
+
+    /**
      * Message represents the message displayed when validation fails. The
      * message is required if the Rule contains line breaks. The message must
      * not contain line breaks. If unset, the message is "failed rule: {Rule}".
@@ -30,6 +49,19 @@ class ValidationRule extends \Moonspot\Kubernetes\BaseObject {
      * return type. Example: "x must be less than max ("+string(self.max)+")"
      */
     public ?string $messageExpression = null;
+
+    /**
+     * reason provides a machine-readable validation failure reason that is
+     * returned to the caller when a request fails this validation rule. The
+     * HTTP status code returned to the caller will match the reason of the
+     * reason of the first failed validation rule. The currently supported
+     * reasons are: "FieldValueInvalid", "FieldValueForbidden",
+     * "FieldValueRequired", "FieldValueDuplicate". If not set, default to use
+     * "FieldValueInvalid". All future added reasons must be accepted by
+     * clients when reading this value and unknown reasons should be treated as
+     * FieldValueInvalid.
+     */
+    public ?string $reason = null;
 
     /**
      * Rule represents the expression which will be evaluated by CEL. ref:

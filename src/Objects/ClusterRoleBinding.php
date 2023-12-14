@@ -33,7 +33,8 @@ class ClusterRoleBinding extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * RoleRef can only reference a ClusterRole in the global namespace. If the
-     * RoleRef cannot be resolved, the Authorizer must return an error.
+     * RoleRef cannot be resolved, the Authorizer must return an error. This
+     * field is immutable.
      */
     public RoleRef $roleRef;
 

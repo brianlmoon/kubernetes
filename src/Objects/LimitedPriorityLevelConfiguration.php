@@ -49,11 +49,10 @@ class LimitedPriorityLevelConfiguration extends \Moonspot\Kubernetes\BaseObject 
      * priority levels in proportion to their NCS values:
      * 
      * NominalCL(i)  = ceil( ServerCL * NCS(i) / sum_ncs ) sum_ncs =
-     * sum[limited priority level k] NCS(k)
+     * sum[priority level k] NCS(k)
      * 
      * Bigger numbers mean a larger nominal concurrency limit, at the expense
-     * of every other Limited priority level. This field has a default value of
-     * 30.
+     * of every other priority level. This field has a default value of 30.
      */
     public ?int $nominalConcurrencyShares = null;
 

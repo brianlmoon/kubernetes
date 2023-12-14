@@ -23,7 +23,14 @@ class ServerStorageVersion extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?string $encodingVersion = null;
 
+    /**
+     * The API server can serve these versions. DecodableVersions must include
+     * all ServedVersions.
+     */
+    public ?StringSet $servedVersions = null;
+
     public function __construct() {
         $this->decodableVersions = new StringSet();
+        $this->servedVersions = new StringSet();
     }
 }

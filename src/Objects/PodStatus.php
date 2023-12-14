@@ -4,7 +4,9 @@ namespace Moonspot\Kubernetes\Objects;
 
 use Moonspot\Kubernetes\Objects\Sets\PodConditionSet;
 use Moonspot\Kubernetes\Objects\Sets\ContainerStatusSet;
+use Moonspot\Kubernetes\Objects\Sets\HostIPSet;
 use Moonspot\Kubernetes\Objects\Sets\PodIPSet;
+use Moonspot\Kubernetes\Objects\Sets\PodResourceClaimStatusSet;
 
 class PodStatus extends \Moonspot\Kubernetes\BaseObject {
 
@@ -26,10 +28,21 @@ class PodStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?ContainerStatusSet $ephemeralContainerStatuses = null;
 
     /**
-     * IP address of the host to which the pod is assigned. Empty if not yet
-     * scheduled.
+     * hostIP holds the IP address of the host to which the pod is assigned.
+     * Empty if the pod has not started yet. A pod can be assigned to a node
+     * that has a problem in kubelet which in turns mean that HostIP will not
+     * be updated even if there is a node is assigned to pod
      */
     public ?string $hostIP = null;
+
+    /**
+     * hostIPs holds the IP addresses allocated to the host. If this field is
+     * specified, the first entry must match the hostIP field. This list is
+     * empty if the pod has not started yet. A pod can be assigned to a node
+     * that has a problem in kubelet which in turns means that HostIPs will not
+     * be updated even if there is a node is assigned to this pod.
+     */
+    public ?HostIPSet $hostIPs = null;
 
     /**
      * The list has one entry per init container in the manifest. The most
@@ -84,8 +97,8 @@ class PodStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?string $phase = null;
 
     /**
-     * IP address allocated to the pod. Routable at least within the cluster.
-     * Empty if not yet allocated.
+     * podIP address allocated to the pod. Routable at least within the
+     * cluster. Empty if not yet allocated.
      */
     public ?string $podIP = null;
 
@@ -119,6 +132,11 @@ class PodStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?string $resize = null;
 
     /**
+     * Status of resource claims.
+     */
+    public ?PodResourceClaimStatusSet $resourceClaimStatuses = null;
+
+    /**
      * RFC 3339 date and time at which the object was acknowledged by the
      * Kubelet. This is before the Kubelet pulled the container image(s) for
      * the pod.
@@ -129,8 +147,10 @@ class PodStatus extends \Moonspot\Kubernetes\BaseObject {
         $this->conditions = new PodConditionSet();
         $this->containerStatuses = new ContainerStatusSet();
         $this->ephemeralContainerStatuses = new ContainerStatusSet();
+        $this->hostIPs = new HostIPSet();
         $this->initContainerStatuses = new ContainerStatusSet();
         $this->podIPs = new PodIPSet();
+        $this->resourceClaimStatuses = new PodResourceClaimStatusSet();
         $this->startTime = new Time();
     }
 }

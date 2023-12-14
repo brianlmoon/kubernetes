@@ -5,6 +5,14 @@ namespace Moonspot\Kubernetes\Objects;
 class PersistentVolumeStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
+     * lastPhaseTransitionTime is the time the phase transitioned from one to
+     * another and automatically resets to current time everytime a volume
+     * phase transitions. This is an alpha field and requires enabling
+     * PersistentVolumeLastPhaseTransitionTime feature.
+     */
+    public ?Time $lastPhaseTransitionTime = null;
+
+    /**
      * message is a human-readable message indicating details about why the
      * volume is in this state.
      */
@@ -22,4 +30,8 @@ class PersistentVolumeStatus extends \Moonspot\Kubernetes\BaseObject {
      * meant for machine parsing and tidy display in the CLI.
      */
     public ?string $reason = null;
+
+    public function __construct() {
+        $this->lastPhaseTransitionTime = new Time();
+    }
 }
