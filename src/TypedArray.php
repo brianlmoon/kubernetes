@@ -9,7 +9,7 @@ use Moonspot\Kubernetes\Interfaces\Export;
  *
  * A child of this class must declare one type of variable.  Then, any item placed into a child object must match that required type.
  *
- * @package DealNews\Core
+ * @package Moonspot\ValueObjects
  */
 abstract class TypedArray extends ArrayObject {
 
