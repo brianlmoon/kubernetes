@@ -8,7 +8,7 @@ class HorizontalPodAutoscalerList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'HorizontalPodAutoscalerList';
 
-    public const VERSION = 'autoscaling/v2beta2';
+    public const VERSION = 'autoscaling/v2';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

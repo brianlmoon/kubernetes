@@ -17,16 +17,14 @@ class EndpointConditions extends \Moonspot\Kubernetes\BaseObject {
      * serving is identical to ready except that it is set regardless of the
      * terminating state of endpoints. This condition should be set to true for
      * a ready endpoint that is terminating. If nil, consumers should defer to
-     * the ready condition. This field can be enabled with the
-     * EndpointSliceTerminatingCondition feature gate.
+     * the ready condition.
      */
     public ?bool $serving = null;
 
     /**
      * terminating indicates that this endpoint is terminating. A nil value
      * indicates an unknown state. Consumers should interpret this unknown
-     * state to mean that the endpoint is not terminating. This field can be
-     * enabled with the EndpointSliceTerminatingCondition feature gate.
+     * state to mean that the endpoint is not terminating.
      */
     public ?bool $terminating = null;
 }

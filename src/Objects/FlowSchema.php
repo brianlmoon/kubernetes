@@ -6,7 +6,7 @@ class FlowSchema extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'FlowSchema';
 
-    public const VERSION = 'flowcontrol.k8s.io/v1beta2';
+    public const VERSION = 'flowcontrol.k8s.io/v1beta3';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

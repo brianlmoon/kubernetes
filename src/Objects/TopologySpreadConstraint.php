@@ -77,7 +77,7 @@ class TopologySpreadConstraint extends \Moonspot\Kubernetes\BaseObject {
      * ignored. All nodes are included in the calculations.
      * 
      * If this value is nil, the behavior is equivalent to the Honor policy.
-     * This is a alpha-level feature enabled by the
+     * This is a beta-level feature default enabled by the
      * NodeInclusionPolicyInPodTopologySpread feature flag.
      */
     public ?string $nodeAffinityPolicy = null;
@@ -90,7 +90,7 @@ class TopologySpreadConstraint extends \Moonspot\Kubernetes\BaseObject {
      * are included.
      * 
      * If this value is nil, the behavior is equivalent to the Ignore policy.
-     * This is a alpha-level feature enabled by the
+     * This is a beta-level feature default enabled by the
      * NodeInclusionPolicyInPodTopologySpread feature flag.
      */
     public ?string $nodeTaintsPolicy = null;

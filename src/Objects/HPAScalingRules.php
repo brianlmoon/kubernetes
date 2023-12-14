@@ -15,7 +15,7 @@ class HPAScalingRules extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * selectPolicy is used to specify which policy should be used. If not set,
-     * the default value MaxPolicySelect is used.
+     * the default value Max is used.
      */
     public ?string $selectPolicy = null;
 

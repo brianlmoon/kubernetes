@@ -5,7 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 class MetricSpec extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * container resource refers to a resource metric (such as those specified
+     * containerResource refers to a resource metric (such as those specified
      * in requests and limits) known to Kubernetes describing a single
      * container in each pod of the current scale target (e.g. CPU or memory).
      * Such metrics are built in to Kubernetes, and have special scaling

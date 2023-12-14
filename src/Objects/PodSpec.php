@@ -7,6 +7,8 @@ use Moonspot\Kubernetes\Objects\Sets\EphemeralContainerSet;
 use Moonspot\Kubernetes\Objects\Sets\HostAliasSet;
 use Moonspot\Kubernetes\Objects\Sets\LocalObjectReferenceSet;
 use Moonspot\Kubernetes\Objects\Sets\PodReadinessGateSet;
+use Moonspot\Kubernetes\Objects\Sets\PodResourceClaimSet;
+use Moonspot\Kubernetes\Objects\Sets\PodSchedulingGateSet;
 use Moonspot\Kubernetes\Objects\Sets\TolerationSet;
 use Moonspot\Kubernetes\Objects\Sets\TopologySpreadConstraintSet;
 use Moonspot\Kubernetes\Objects\Sets\VolumeSet;
@@ -230,6 +232,18 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?PodReadinessGateSet $readinessGates = null;
 
     /**
+     * ResourceClaims defines which ResourceClaims must be allocated and
+     * reserved before the Pod is allowed to start. The resources will be made
+     * available to those containers which consume them by name.
+     * 
+     * This is an alpha field and requires enabling the
+     * DynamicResourceAllocation feature gate.
+     * 
+     * This field is immutable.
+     */
+    public ?PodResourceClaimSet $resourceClaims = null;
+
+    /**
      * Restart policy for all containers within the pod. One of Always,
      * OnFailure, Never. Default to Always. More info:
      * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
@@ -252,6 +266,16 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
      * specified, the pod will be dispatched by default scheduler.
      */
     public ?string $schedulerName = null;
+
+    /**
+     * SchedulingGates is an opaque list of values that if specified will block
+     * scheduling the pod. More info: 
+     * https://git.k8s.io/enhancements/keps/sig-scheduling/3521-pod-scheduling-readiness.
+     * 
+     * This is an alpha-level feature enabled by PodSchedulingReadiness feature
+     * gate.
+     */
+    public ?PodSchedulingGateSet $schedulingGates = null;
 
     /**
      * SecurityContext holds pod-level security attributes and common container
@@ -341,6 +365,8 @@ class PodSpec extends \Moonspot\Kubernetes\BaseObject {
         $this->initContainers = new ContainerSet();
         $this->os = new PodOS();
         $this->readinessGates = new PodReadinessGateSet();
+        $this->resourceClaims = new PodResourceClaimSet();
+        $this->schedulingGates = new PodSchedulingGateSet();
         $this->securityContext = new PodSecurityContext();
         $this->tolerations = new TolerationSet();
         $this->topologySpreadConstraints = new TopologySpreadConstraintSet();

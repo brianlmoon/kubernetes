@@ -6,7 +6,7 @@ class CrossVersionObjectReference extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'CrossVersionObjectReference';
 
-    public const VERSION = 'autoscaling/v2beta2';
+    public const VERSION = 'autoscaling/v2';
 
     /**
      * API version of the referent
@@ -15,7 +15,7 @@ class CrossVersionObjectReference extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Kind of the referent; More info:
-     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      */
     public string $kind;
 

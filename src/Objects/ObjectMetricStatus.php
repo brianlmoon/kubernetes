@@ -9,7 +9,10 @@ class ObjectMetricStatus extends \Moonspot\Kubernetes\BaseObject {
      */
     public MetricValueStatus $current;
 
-
+    /**
+     * DescribedObject specifies the descriptions of a object,such as kind,name
+     * apiVersion
+     */
     public CrossVersionObjectReference $describedObject;
 
     /**

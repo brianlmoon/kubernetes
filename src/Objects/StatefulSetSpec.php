@@ -14,6 +14,15 @@ class StatefulSetSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?int $minReadySeconds = null;
 
     /**
+     * ordinals controls the numbering of replica indices in a StatefulSet. The
+     * default ordinals behavior assigns a "0" index to the first replica and
+     * increments the index by one for each additional replica requested. Using
+     * the ordinals field requires the StatefulSetStartOrdinal feature gate to
+     * be enabled, which is alpha.
+     */
+    public ?StatefulSetOrdinals $ordinals = null;
+
+    /**
      * persistentVolumeClaimRetentionPolicy describes the lifecycle of
      * persistent volume claims created from volumeClaimTemplates. By default,
      * all persistent volume claims are created as needed and retained until
@@ -73,7 +82,9 @@ class StatefulSetSpec extends \Moonspot\Kubernetes\BaseObject {
      * template is the object that describes the pod that will be created if
      * insufficient replicas are detected. Each pod stamped out by the
      * StatefulSet will fulfill this Template, but have a unique identity from
-     * the rest of the StatefulSet.
+     * the rest of the StatefulSet. Each pod will be named with the format
+     * <statefulsetname>-<podindex>. For example, a pod in a StatefulSet named
+     * "web" with index number "3" would be named "web-3".
      */
     public PodTemplateSpec $template;
 
@@ -95,6 +106,7 @@ class StatefulSetSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?PersistentVolumeClaimSet $volumeClaimTemplates = null;
 
     public function __construct() {
+        $this->ordinals = new StatefulSetOrdinals();
         $this->persistentVolumeClaimRetentionPolicy = new StatefulSetPersistentVolumeClaimRetentionPolicy();
         $this->selector = new LabelSelector();
         $this->template = new PodTemplateSpec();

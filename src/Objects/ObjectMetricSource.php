@@ -4,7 +4,10 @@ namespace Moonspot\Kubernetes\Objects;
 
 class ObjectMetricSource extends \Moonspot\Kubernetes\BaseObject {
 
-
+    /**
+     * describedObject specifies the descriptions of a object,such as kind,name
+     * apiVersion
+     */
     public CrossVersionObjectReference $describedObject;
 
     /**

@@ -23,7 +23,7 @@ class HorizontalPodAutoscalerStatus extends \Moonspot\Kubernetes\BaseObject {
      * currentReplicas is current number of replicas of pods managed by this
      * autoscaler, as last seen by the autoscaler.
      */
-    public int $currentReplicas;
+    public ?int $currentReplicas = null;
 
     /**
      * desiredReplicas is the desired number of replicas of pods managed by
