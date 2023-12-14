@@ -2,11 +2,11 @@
 
 namespace Moonspot\Kubernetes\Objects;
 
-use Moonspot\Kubernetes\Objects\Sets\ClusterCIDRSet;
+use Moonspot\Kubernetes\Objects\Sets\ServiceCIDRSet;
 
-class ClusterCIDRList extends \Moonspot\Kubernetes\BaseObject {
+class ServiceCIDRList extends \Moonspot\Kubernetes\BaseObject {
 
-    public const KIND = 'ClusterCIDRList';
+    public const KIND = 'ServiceCIDRList';
 
     public const VERSION = 'networking.k8s.io/v1alpha1';
 
@@ -19,9 +19,9 @@ class ClusterCIDRList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * items is the list of ClusterCIDRs.
+     * items is the list of ServiceCIDRs.
      */
-    public ClusterCIDRSet $items;
+    public ServiceCIDRSet $items;
 
     /**
      * Kind is a string value representing the REST resource this object
@@ -40,7 +40,7 @@ class ClusterCIDRList extends \Moonspot\Kubernetes\BaseObject {
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
-        $this->items = new ClusterCIDRSet();
+        $this->items = new ServiceCIDRSet();
         $this->metadata = new ListMeta();
     }
 }

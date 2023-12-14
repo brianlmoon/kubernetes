@@ -17,10 +17,10 @@ class APIServiceSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?string $group = null;
 
     /**
-     * GroupPriorityMininum is the priority this group should have at least.
+     * GroupPriorityMinimum is the priority this group should have at least.
      * Higher priority means that the group is preferred by clients over lower
      * priority ones. Note that other versions of this group might specify even
-     * higher GroupPriorityMininum values such that the whole group gets a
+     * higher GroupPriorityMinimum values such that the whole group gets a
      * higher priority. The primary sort is based on GroupPriorityMinimum,
      * ordered highest number to lowest (20 before 10). The secondary sort is
      * based on the alphabetical comparison of the name of the object.  (v1.bar

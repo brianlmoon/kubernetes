@@ -65,7 +65,7 @@ class PersistentVolumeClaimSpec extends \Moonspot\Kubernetes\BaseObject {
      * claim. More info:
      * https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
      */
-    public ?ResourceRequirements $resources = null;
+    public ?VolumeResourceRequirements $resources = null;
 
     /**
      * selector is a label query over volumes to consider for binding.
@@ -78,6 +78,26 @@ class PersistentVolumeClaimSpec extends \Moonspot\Kubernetes\BaseObject {
      * https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
      */
     public ?string $storageClassName = null;
+
+    /**
+     * volumeAttributesClassName may be used to set the VolumeAttributesClass
+     * used by this claim. If specified, the CSI driver will create or update
+     * the volume with the attributes defined in the corresponding
+     * VolumeAttributesClass. This has a different purpose than
+     * storageClassName, it can be changed after the claim is created. An empty
+     * string value means that no VolumeAttributesClass will be applied to the
+     * claim but it's not allowed to reset this field to empty string once it
+     * is set. If unspecified and the PersistentVolumeClaim is unbound, the
+     * default VolumeAttributesClass will be set by the persistentvolume
+     * controller if it exists. If the resource referred to by
+     * volumeAttributesClass does not exist, this PersistentVolumeClaim will be
+     * set to a Pending state, as reflected by the modifyVolumeStatus field,
+     * until such as a resource exists. More info:
+     * https://kubernetes.io/docs/concepts/storage/persistent-volumes#volumeattributesclass
+     * (Alpha) Using this field requires the VolumeAttributesClass feature gate
+     * to be enabled.
+     */
+    public ?string $volumeAttributesClassName = null;
 
     /**
      * volumeMode defines what type of volume is required by the claim. Value
@@ -95,7 +115,7 @@ class PersistentVolumeClaimSpec extends \Moonspot\Kubernetes\BaseObject {
         $this->accessModes = new StringSet();
         $this->dataSource = new TypedLocalObjectReference();
         $this->dataSourceRef = new TypedObjectReference();
-        $this->resources = new ResourceRequirements();
+        $this->resources = new VolumeResourceRequirements();
         $this->selector = new LabelSelector();
     }
 }

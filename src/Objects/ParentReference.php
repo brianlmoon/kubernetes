@@ -23,9 +23,4 @@ class ParentReference extends \Moonspot\Kubernetes\BaseObject {
      * Resource is the resource of the object being referenced.
      */
     public ?string $resource = null;
-
-    /**
-     * UID is the uid of the object being referenced.
-     */
-    public ?string $uid = null;
 }

@@ -2,11 +2,13 @@
 
 namespace Moonspot\Kubernetes\Objects;
 
-class ClusterCIDR extends \Moonspot\Kubernetes\BaseObject {
+use Moonspot\Kubernetes\Objects\Sets\VolumeAttributesClassSet;
 
-    public const KIND = 'ClusterCIDR';
+class VolumeAttributesClassList extends \Moonspot\Kubernetes\BaseObject {
 
-    public const VERSION = 'networking.k8s.io/v1alpha1';
+    public const KIND = 'VolumeAttributesClassList';
+
+    public const VERSION = 'storage.k8s.io/v1alpha1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -17,6 +19,11 @@ class ClusterCIDR extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
+     * items is the list of VolumeAttributesClass objects.
+     */
+    public VolumeAttributesClassSet $items;
+
+    /**
      * Kind is a string value representing the REST resource this object
      * represents. Servers may infer this from the endpoint the client submits
      * requests to. Cannot be updated. In CamelCase. More info:
@@ -25,21 +32,15 @@ class ClusterCIDR extends \Moonspot\Kubernetes\BaseObject {
     public ?string $kind = null;
 
     /**
-     * Standard object's metadata. More info:
+     * Standard list metadata More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      */
-    public ?ObjectMeta $metadata = null;
-
-    /**
-     * spec is the desired state of the ClusterCIDR. More info:
-     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     */
-    public ?ClusterCIDRSpec $spec = null;
+    public ?ListMeta $metadata = null;
 
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
-        $this->metadata = new ObjectMeta();
-        $this->spec = new ClusterCIDRSpec();
+        $this->items = new VolumeAttributesClassSet();
+        $this->metadata = new ListMeta();
     }
 }

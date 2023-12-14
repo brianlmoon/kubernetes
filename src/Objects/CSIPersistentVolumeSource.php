@@ -36,10 +36,9 @@ class CSIPersistentVolumeSource extends \Moonspot\Kubernetes\BaseObject {
     /**
      * nodeExpandSecretRef is a reference to the secret object containing
      * sensitive information to pass to the CSI driver to complete the CSI
-     * NodeExpandVolume call. This is a beta field which is enabled default by
-     * CSINodeExpandSecret feature gate. This field is optional, may be omitted
-     * if no secret is required. If the secret object contains more than one
-     * secret, all secrets are passed.
+     * NodeExpandVolume call. This field is optional, may be omitted if no
+     * secret is required. If the secret object contains more than one secret,
+     * all secrets are passed.
      */
     public ?SecretReference $nodeExpandSecretRef = null;
 

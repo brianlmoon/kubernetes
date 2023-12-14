@@ -112,6 +112,22 @@ class PersistentVolumeClaimStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?PersistentVolumeClaimConditionSet $conditions = null;
 
     /**
+     * currentVolumeAttributesClassName is the current name of the
+     * VolumeAttributesClass the PVC is using. When unset, there is no
+     * VolumeAttributeClass applied to this PersistentVolumeClaim This is an
+     * alpha field and requires enabling VolumeAttributesClass feature.
+     */
+    public ?string $currentVolumeAttributesClassName = null;
+
+    /**
+     * ModifyVolumeStatus represents the status object of
+     * ControllerModifyVolume operation. When this is unset, there is no
+     * ModifyVolume operation being attempted. This is an alpha field and
+     * requires enabling VolumeAttributesClass feature.
+     */
+    public ?ModifyVolumeStatus $modifyVolumeStatus = null;
+
+    /**
      * phase represents the current phase of PersistentVolumeClaim.
      */
     public ?string $phase = null;
@@ -119,5 +135,6 @@ class PersistentVolumeClaimStatus extends \Moonspot\Kubernetes\BaseObject {
     public function __construct() {
         $this->accessModes = new StringSet();
         $this->conditions = new PersistentVolumeClaimConditionSet();
+        $this->modifyVolumeStatus = new ModifyVolumeStatus();
     }
 }

@@ -14,8 +14,8 @@ class PodFailurePolicyRule extends \Moonspot\Kubernetes\BaseObject {
      *   running pods are terminated.
      * - FailIndex: indicates that the pod's index is marked as Failed and will
      *   not be restarted.
-     *   This value is alpha-level. It can be used when the
-     *   `JobBackoffLimitPerIndex` feature gate is enabled (disabled by
+     *   This value is beta-level. It can be used when the
+     *   `JobBackoffLimitPerIndex` feature gate is enabled (enabled by
      * default).
      * - Ignore: indicates that the counter towards the .backoffLimit is not
      *   incremented and a replacement pod is created.
@@ -37,7 +37,7 @@ class PodFailurePolicyRule extends \Moonspot\Kubernetes\BaseObject {
      * satisfied if at least one pattern matches an actual pod condition. At
      * most 20 elements are allowed.
      */
-    public PodFailurePolicyOnPodConditionsPatternSet $onPodConditions;
+    public ?PodFailurePolicyOnPodConditionsPatternSet $onPodConditions = null;
 
     public function __construct() {
         $this->onExitCodes = new PodFailurePolicyOnExitCodesRequirement();

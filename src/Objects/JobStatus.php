@@ -54,16 +54,13 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
      * or more consecutive numbers are compressed and represented by the first
      * and last element of the series, separated by a hyphen. For example, if
      * the failed indexes are 1, 3, 4, 5 and 7, they are represented as
-     * "1,3-5,7". This field is alpha-level. It can be used when the
-     * `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).
+     * "1,3-5,7". This field is beta-level. It can be used when the
+     * `JobBackoffLimitPerIndex` feature gate is enabled (enabled by default).
      */
     public ?string $failedIndexes = null;
 
     /**
      * The number of pods which have a Ready condition.
-     * 
-     * This field is beta-level. The job controller populates the field when
-     * the feature gate JobReadyPods is enabled (enabled by default).
      */
     public ?int $ready = null;
 
@@ -85,8 +82,8 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
      * The number of pods which are terminating (in phase Pending or Running
      * and have a deletionTimestamp).
      * 
-     * This field is alpha-level. The job controller populates the field when
-     * the feature gate JobPodReplacementPolicy is enabled (disabled by
+     * This field is beta-level. The job controller populates the field when
+     * the feature gate JobPodReplacementPolicy is enabled (enabled by
      * default).
      */
     public ?int $terminating = null;
