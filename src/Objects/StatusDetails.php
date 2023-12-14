@@ -43,7 +43,7 @@ class StatusDetails extends \Moonspot\Kubernetes\BaseObject {
     /**
      * UID of the resource. (when there is a single resource which can be
      * described). More info:
-     * http://kubernetes.io/docs/user-guide/identifiers#uids
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
      */
     public ?string $uid = null;
 

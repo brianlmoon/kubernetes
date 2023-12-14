@@ -19,7 +19,7 @@ class EmptyDirVolumeSource extends \Moonspot\Kubernetes\BaseObject {
      * between the SizeLimit specified here and the sum of memory limits of all
      * containers in a pod. The default is nil which means that the limit is
      * undefined. More info:
-     * http://kubernetes.io/docs/user-guide/volumes#emptydir
+     * https://kubernetes.io/docs/concepts/storage/volumes#emptydir
      */
     public ?Quantity $sizeLimit = null;
 

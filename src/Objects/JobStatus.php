@@ -12,7 +12,7 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?int $active = null;
 
     /**
-     * CompletedIndexes holds the completed indexes when .spec.completionMode =
+     * completedIndexes holds the completed indexes when .spec.completionMode =
      * "Indexed" in a text format. The indexes are represented as decimal
      * integers separated by commas. The numbers are listed in increasing
      * order. Three or more consecutive numbers are compressed and represented
@@ -69,14 +69,16 @@ class JobStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?int $succeeded = null;
 
     /**
-     * UncountedTerminatedPods holds the UIDs of Pods that have terminated but
+     * uncountedTerminatedPods holds the UIDs of Pods that have terminated but
      * the job controller hasn't yet accounted for in the status counters.
      * 
      * The job controller creates pods with a finalizer. When a pod terminates
      * (succeeded or failed), the controller does three steps to account for it
-     * in the job status: (1) Add the pod UID to the arrays in this field. (2)
-     * Remove the pod finalizer. (3) Remove the pod UID from the arrays while
-     * increasing the corresponding
+     * in the job status:
+     * 
+     * 1. Add the pod UID to the arrays in this field. 2. Remove the pod
+     * finalizer. 3. Remove the pod UID from the arrays while increasing the
+     * corresponding
      *     counter.
      * 
      * Old jobs might not be tracked using this field, in which case the field

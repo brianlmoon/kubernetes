@@ -6,6 +6,7 @@ class CronJobSpec extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Specifies how to treat concurrent executions of a Job. Valid values are:
+     * 
      * - "Allow" (default): allows CronJobs to run concurrently; - "Forbid":
      * forbids concurrent runs, skipping next run if previous run hasn't
      * finished yet; - "Replace": cancels currently running job and replaces it
@@ -62,8 +63,6 @@ class CronJobSpec extends \Moonspot\Kubernetes\BaseObject {
      * will create a system event with the reason UnknownTimeZone. More
      * information can be found in
      * https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones
-     * This is beta field and must be enabled via the `CronJobTimeZone` feature
-     * gate.
      */
     public ?string $timeZone = null;
 

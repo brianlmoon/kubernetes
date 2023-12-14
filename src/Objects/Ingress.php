@@ -31,13 +31,13 @@ class Ingress extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * Spec is the desired state of the Ingress. More info:
+     * spec is the desired state of the Ingress. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      */
     public ?IngressSpec $spec = null;
 
     /**
-     * Status is the current state of the Ingress. More info:
+     * status is the current state of the Ingress. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      */
     public ?IngressStatus $status = null;

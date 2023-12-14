@@ -19,7 +19,7 @@ class ClusterCIDRList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is the list of ClusterCIDRs.
+     * items is the list of ClusterCIDRs.
      */
     public ClusterCIDRSet $items;
 

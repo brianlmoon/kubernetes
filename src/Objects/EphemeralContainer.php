@@ -6,6 +6,7 @@ use Moonspot\Kubernetes\Objects\Sets\StringSet;
 use Moonspot\Kubernetes\Objects\Sets\EnvVarSet;
 use Moonspot\Kubernetes\Objects\Sets\EnvFromSourceSet;
 use Moonspot\Kubernetes\Objects\Sets\ContainerPortSet;
+use Moonspot\Kubernetes\Objects\Sets\ContainerResizePolicySet;
 use Moonspot\Kubernetes\Objects\Sets\VolumeDeviceSet;
 use Moonspot\Kubernetes\Objects\Sets\VolumeMountSet;
 
@@ -93,6 +94,11 @@ class EphemeralContainer extends \Moonspot\Kubernetes\BaseObject {
      * Probes are not allowed for ephemeral containers.
      */
     public ?Probe $readinessProbe = null;
+
+    /**
+     * Resources resize policy for the container.
+     */
+    public ?ContainerResizePolicySet $resizePolicy = null;
 
     /**
      * Resources are not allowed for ephemeral containers. Ephemeral containers
@@ -198,6 +204,7 @@ class EphemeralContainer extends \Moonspot\Kubernetes\BaseObject {
         $this->livenessProbe = new Probe();
         $this->ports = new ContainerPortSet();
         $this->readinessProbe = new Probe();
+        $this->resizePolicy = new ContainerResizePolicySet();
         $this->resources = new ResourceRequirements();
         $this->securityContext = new SecurityContext();
         $this->startupProbe = new Probe();

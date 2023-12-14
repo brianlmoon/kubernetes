@@ -10,7 +10,7 @@ class ResourceMetricStatus extends \Moonspot\Kubernetes\BaseObject {
     public MetricValueStatus $current;
 
     /**
-     * Name is the name of the resource in question.
+     * name is the name of the resource in question.
      */
     public string $name;
 

@@ -36,7 +36,7 @@ class CSIDriver extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * Specification of the CSI Driver.
+     * spec represents the specification of the CSI Driver.
      */
     public CSIDriverSpec $spec;
 

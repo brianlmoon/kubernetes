@@ -19,7 +19,7 @@ class NetworkPolicyList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is a list of schema objects.
+     * items is a list of schema objects.
      */
     public NetworkPolicySet $items;
 

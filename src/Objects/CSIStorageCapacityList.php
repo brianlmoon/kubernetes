@@ -8,7 +8,7 @@ class CSIStorageCapacityList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'CSIStorageCapacityList';
 
-    public const VERSION = 'storage.k8s.io/v1beta1';
+    public const VERSION = 'storage.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -19,7 +19,7 @@ class CSIStorageCapacityList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is the list of CSIStorageCapacity objects.
+     * items is the list of CSIStorageCapacity objects.
      */
     public CSIStorageCapacitySet $items;
 

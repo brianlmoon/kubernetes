@@ -7,9 +7,9 @@ use Moonspot\Kubernetes\Objects\Sets\ResourceClaimConsumerReferenceSet;
 class ResourceClaimStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Allocation is set by the resource driver once a resource has been
-     * allocated successfully. If this is not specified, the resource is not
-     * yet allocated.
+     * Allocation is set by the resource driver once a resource or set of
+     * resources has been allocated successfully. If this is not specified, the
+     * resources have not been allocated yet.
      */
     public ?AllocationResult $allocation = null;
 

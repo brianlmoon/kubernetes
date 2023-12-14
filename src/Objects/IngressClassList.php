@@ -19,7 +19,7 @@ class IngressClassList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is the list of IngressClasses.
+     * items is the list of IngressClasses.
      */
     public IngressClassSet $items;
 

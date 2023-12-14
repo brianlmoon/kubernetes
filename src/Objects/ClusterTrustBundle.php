@@ -2,11 +2,11 @@
 
 namespace Moonspot\Kubernetes\Objects;
 
-class PodScheduling extends \Moonspot\Kubernetes\BaseObject {
+class ClusterTrustBundle extends \Moonspot\Kubernetes\BaseObject {
 
-    public const KIND = 'PodScheduling';
+    public const KIND = 'ClusterTrustBundle';
 
-    public const VERSION = 'resource.k8s.io/v1alpha1';
+    public const VERSION = 'certificates.k8s.io/v1alpha1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -25,25 +25,19 @@ class PodScheduling extends \Moonspot\Kubernetes\BaseObject {
     public ?string $kind = null;
 
     /**
-     * Standard object metadata
+     * metadata contains the object metadata.
      */
     public ?ObjectMeta $metadata = null;
 
     /**
-     * Spec describes where resources for the Pod are needed.
+     * spec contains the signer (if any) and trust anchors.
      */
-    public PodSchedulingSpec $spec;
-
-    /**
-     * Status describes where resources for the Pod can be allocated.
-     */
-    public ?PodSchedulingStatus $status = null;
+    public ClusterTrustBundleSpec $spec;
 
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
         $this->metadata = new ObjectMeta();
-        $this->spec = new PodSchedulingSpec();
-        $this->status = new PodSchedulingStatus();
+        $this->spec = new ClusterTrustBundleSpec();
     }
 }

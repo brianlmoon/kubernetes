@@ -5,13 +5,13 @@ namespace Moonspot\Kubernetes\Objects;
 class HTTPIngressPath extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Backend defines the referenced service endpoint to which the traffic
+     * backend defines the referenced service endpoint to which the traffic
      * will be forwarded to.
      */
     public IngressBackend $backend;
 
     /**
-     * Path is matched against the path of an incoming request. Currently it
+     * path is matched against the path of an incoming request. Currently it
      * can contain characters disallowed from the conventional "path" part of a
      * URL as defined by RFC 3986. Paths must begin with a '/' and must be
      * present when using PathType with value "Exact" or "Prefix".
@@ -19,7 +19,7 @@ class HTTPIngressPath extends \Moonspot\Kubernetes\BaseObject {
     public ?string $path = null;
 
     /**
-     * PathType determines the interpretation of the Path matching. PathType
+     * pathType determines the interpretation of the path matching. PathType
      * can be one of the following values: * Exact: Matches the URL path
      * exactly. * Prefix: Matches based on a URL path prefix split by '/'.
      * Matching is

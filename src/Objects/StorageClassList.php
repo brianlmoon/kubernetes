@@ -19,7 +19,7 @@ class StorageClassList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is the list of StorageClasses
+     * items is the list of StorageClasses
      */
     public StorageClassSet $items;
 

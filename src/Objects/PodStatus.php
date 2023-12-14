@@ -101,7 +101,7 @@ class PodStatus extends \Moonspot\Kubernetes\BaseObject {
      * The Quality of Service (QOS) classification assigned to the pod based on
      * resource requirements See PodQOSClass type for available QOS classes
      * More info:
-     * https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/#quality-of-service-classes
      */
     public ?string $qosClass = null;
 
@@ -110,6 +110,13 @@ class PodStatus extends \Moonspot\Kubernetes\BaseObject {
      * this state. e.g. 'Evicted'
      */
     public ?string $reason = null;
+
+    /**
+     * Status of resources resize desired for pod's containers. It is empty if
+     * no resources resize is pending. Any changes to container resources will
+     * automatically set this to "Proposed"
+     */
+    public ?string $resize = null;
 
     /**
      * RFC 3339 date and time at which the object was acknowledged by the

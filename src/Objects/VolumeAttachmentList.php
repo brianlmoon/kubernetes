@@ -19,7 +19,7 @@ class VolumeAttachmentList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is the list of VolumeAttachments
+     * items is the list of VolumeAttachments
      */
     public VolumeAttachmentSet $items;
 

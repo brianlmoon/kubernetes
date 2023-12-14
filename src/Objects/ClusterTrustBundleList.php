@@ -2,13 +2,13 @@
 
 namespace Moonspot\Kubernetes\Objects;
 
-use Moonspot\Kubernetes\Objects\Sets\PodSchedulingSet;
+use Moonspot\Kubernetes\Objects\Sets\ClusterTrustBundleSet;
 
-class PodSchedulingList extends \Moonspot\Kubernetes\BaseObject {
+class ClusterTrustBundleList extends \Moonspot\Kubernetes\BaseObject {
 
-    public const KIND = 'PodSchedulingList';
+    public const KIND = 'ClusterTrustBundleList';
 
-    public const VERSION = 'resource.k8s.io/v1alpha1';
+    public const VERSION = 'certificates.k8s.io/v1alpha1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -19,9 +19,9 @@ class PodSchedulingList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is the list of PodScheduling objects.
+     * items is a collection of ClusterTrustBundle objects
      */
-    public PodSchedulingSet $items;
+    public ClusterTrustBundleSet $items;
 
     /**
      * Kind is a string value representing the REST resource this object
@@ -32,14 +32,14 @@ class PodSchedulingList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $kind = null;
 
     /**
-     * Standard list metadata
+     * metadata contains the list metadata.
      */
     public ?ListMeta $metadata = null;
 
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
-        $this->items = new PodSchedulingSet();
+        $this->items = new ClusterTrustBundleSet();
         $this->metadata = new ListMeta();
     }
 }

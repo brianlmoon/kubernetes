@@ -19,7 +19,7 @@ class EndpointSliceList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * List of endpoint slices
+     * items is the list of endpoint slices
      */
     public EndpointSliceSet $items;
 

@@ -20,7 +20,7 @@ class HPAScalingRules extends \Moonspot\Kubernetes\BaseObject {
     public ?string $selectPolicy = null;
 
     /**
-     * StabilizationWindowSeconds is the number of seconds for which past
+     * stabilizationWindowSeconds is the number of seconds for which past
      * recommendations should be considered while scaling up or scaling down.
      * StabilizationWindowSeconds must be greater than or equal to zero and
      * less than or equal to 3600 (one hour). If not set, use the default

@@ -25,7 +25,8 @@ class CSINode extends \Moonspot\Kubernetes\BaseObject {
     public ?string $kind = null;
 
     /**
-     * metadata.name must be the Kubernetes node name.
+     * Standard object's metadata. metadata.name must be the Kubernetes node
+     * name.
      */
     public ?ObjectMeta $metadata = null;
 

@@ -6,7 +6,7 @@ class CSIStorageCapacity extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'CSIStorageCapacity';
 
-    public const VERSION = 'storage.k8s.io/v1beta1';
+    public const VERSION = 'storage.k8s.io/v1';
 
     /**
      * APIVersion defines the versioned schema of this representation of an
@@ -17,7 +17,7 @@ class CSIStorageCapacity extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Capacity is the value reported by the CSI driver in its
+     * capacity is the value reported by the CSI driver in its
      * GetCapacityResponse for a GetCapacityRequest with topology and
      * parameters that match the previous fields.
      * 
@@ -36,7 +36,7 @@ class CSIStorageCapacity extends \Moonspot\Kubernetes\BaseObject {
     public ?string $kind = null;
 
     /**
-     * MaximumVolumeSize is the value reported by the CSI driver in its
+     * maximumVolumeSize is the value reported by the CSI driver in its
      * GetCapacityResponse for a GetCapacityRequest with topology and
      * parameters that match the previous fields.
      * 
@@ -50,8 +50,8 @@ class CSIStorageCapacity extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Standard object's metadata. The name has no particular meaning. It must
-     * be be a DNS subdomain (dots allowed, 253 characters). To ensure that
-     * there are no conflicts with other CSI drivers on the cluster, the
+     * be a DNS subdomain (dots allowed, 253 characters). To ensure that there
+     * are no conflicts with other CSI drivers on the cluster, the
      * recommendation is to use csisc-<uuid>, a generated name, or a
      * reverse-domain name which ends with the unique CSI driver name.
      * 
@@ -63,7 +63,7 @@ class CSIStorageCapacity extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * NodeTopology defines which nodes have access to the storage for which
+     * nodeTopology defines which nodes have access to the storage for which
      * capacity was reported. If not set, the storage is not accessible from
      * any node in the cluster. If empty, the storage is accessible from all
      * nodes. This field is immutable.
@@ -71,11 +71,11 @@ class CSIStorageCapacity extends \Moonspot\Kubernetes\BaseObject {
     public ?LabelSelector $nodeTopology = null;
 
     /**
-     * The name of the StorageClass that the reported capacity applies to. It
-     * must meet the same requirements as the name of a StorageClass object
-     * (non-empty, DNS subdomain). If that object no longer exists, the
-     * CSIStorageCapacity object is obsolete and should be removed by its
-     * creator. This field is immutable.
+     * storageClassName represents the name of the StorageClass that the
+     * reported capacity applies to. It must meet the same requirements as the
+     * name of a StorageClass object (non-empty, DNS subdomain). If that object
+     * no longer exists, the CSIStorageCapacity object is obsolete and should
+     * be removed by its creator. This field is immutable.
      */
     public string $storageClassName;
 

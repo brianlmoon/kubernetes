@@ -24,9 +24,9 @@ class CSIDriverSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?bool $attachRequired = null;
 
     /**
-     * Defines if the underlying volume supports changing ownership and
-     * permission of the volume before being mounted. Refer to the specific
-     * FSGroupPolicy values for additional details.
+     * fsGroupPolicy defines if the underlying volume supports changing
+     * ownership and permission of the volume before being mounted. Refer to
+     * the specific FSGroupPolicy values for additional details.
      * 
      * This field is immutable.
      * 
@@ -39,16 +39,19 @@ class CSIDriverSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?string $fsGroupPolicy = null;
 
     /**
-     * If set to true, podInfoOnMount indicates this CSI volume driver requires
-     * additional pod information (like podName, podUID, etc.) during mount
-     * operations. If set to false, pod information will not be passed on
-     * mount. Default is false. The CSI driver specifies podInfoOnMount as part
-     * of driver deployment. If true, Kubelet will pass pod information as
-     * VolumeContext in the CSI NodePublishVolume() calls. The CSI driver is
-     * responsible for parsing and validating the information passed in as
-     * VolumeContext. The following VolumeConext will be passed if
-     * podInfoOnMount is set to true. This list might grow, but the prefix will
-     * be used. "csi.storage.k8s.io/pod.name": pod.Name
+     * podInfoOnMount indicates this CSI volume driver requires additional pod
+     * information (like podName, podUID, etc.) during mount operations, if set
+     * to true. If set to false, pod information will not be passed on mount.
+     * Default is false.
+     * 
+     * The CSI driver specifies podInfoOnMount as part of driver deployment. If
+     * true, Kubelet will pass pod information as VolumeContext in the CSI
+     * NodePublishVolume() calls. The CSI driver is responsible for parsing and
+     * validating the information passed in as VolumeContext.
+     * 
+     * The following VolumeConext will be passed if podInfoOnMount is set to
+     * true. This list might grow, but the prefix will be used.
+     * "csi.storage.k8s.io/pod.name": pod.Name
      * "csi.storage.k8s.io/pod.namespace": pod.Namespace
      * "csi.storage.k8s.io/pod.uid": string(pod.UID)
      * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral
@@ -69,7 +72,7 @@ class CSIDriverSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?bool $podInfoOnMount = null;
 
     /**
-     * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+     * requiresRepublish indicates the CSI driver wants `NodePublishVolume`
      * being periodically called to reflect any possible change in the mounted
      * volume. This field defaults to false.
      * 
@@ -80,7 +83,7 @@ class CSIDriverSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?bool $requiresRepublish = null;
 
     /**
-     * SELinuxMount specifies if the CSI driver supports "-o context" mount
+     * seLinuxMount specifies if the CSI driver supports "-o context" mount
      * option.
      * 
      * When "true", the CSI driver must ensure that all volumes provided by
@@ -102,10 +105,10 @@ class CSIDriverSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?bool $seLinuxMount = null;
 
     /**
-     * If set to true, storageCapacity indicates that the CSI volume driver
-     * wants pod scheduling to consider the storage capacity that the driver
-     * deployment will report by creating CSIStorageCapacity objects with
-     * capacity information.
+     * storageCapacity indicates that the CSI volume driver wants pod
+     * scheduling to consider the storage capacity that the driver deployment
+     * will report by creating CSIStorageCapacity objects with capacity
+     * information, if set to true.
      * 
      * The check can be enabled immediately when deploying a driver. In that
      * case, provisioning new volumes with late binding will pause until the
@@ -120,7 +123,7 @@ class CSIDriverSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?bool $storageCapacity = null;
 
     /**
-     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokenRequests indicates the CSI driver needs pods' service account
      * tokens it is mounting volume for to do necessary authentication. Kubelet
      * will pass the tokens in VolumeContext in the CSI NodePublishVolume
      * calls. The CSI driver should parse and validate the following
@@ -142,16 +145,19 @@ class CSIDriverSpec extends \Moonspot\Kubernetes\BaseObject {
      * volumeLifecycleModes defines what kind of volumes this CSI volume driver
      * supports. The default if the list is empty is "Persistent", which is the
      * usage defined by the CSI specification and implemented in Kubernetes via
-     * the usual PV/PVC mechanism. The other mode is "Ephemeral". In this mode,
-     * volumes are defined inline inside the pod spec with CSIVolumeSource and
-     * their lifecycle is tied to the lifecycle of that pod. A driver has to be
-     * aware of this because it is only going to get a NodePublishVolume call
-     * for such a volume. For more information about implementing this mode,
-     * see https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A
-     * driver can support one or more of these modes and more modes may be
-     * added in the future. This field is beta.
+     * the usual PV/PVC mechanism.
      * 
-     * This field is immutable.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this because it
+     * is only going to get a NodePublishVolume call for such a volume.
+     * 
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html A
+     * driver can support one or more of these modes and more modes may be
+     * added in the future.
+     * 
+     * This field is beta. This field is immutable.
      */
     public ?StringSet $volumeLifecycleModes = null;
 

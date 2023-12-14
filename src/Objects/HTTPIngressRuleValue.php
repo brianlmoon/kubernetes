@@ -7,7 +7,7 @@ use Moonspot\Kubernetes\Objects\Sets\HTTPIngressPathSet;
 class HTTPIngressRuleValue extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * A collection of paths that map requests to backends.
+     * paths is a collection of paths that map requests to backends.
      */
     public HTTPIngressPathSet $paths;
 

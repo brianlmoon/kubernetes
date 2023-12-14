@@ -35,10 +35,18 @@ class ValidatingAdmissionPolicy extends \Moonspot\Kubernetes\BaseObject {
      */
     public ?ValidatingAdmissionPolicySpec $spec = null;
 
+    /**
+     * The status of the ValidatingAdmissionPolicy, including warnings that are
+     * useful to determine if the policy behaves in the expected way. Populated
+     * by the system. Read-only.
+     */
+    public ?ValidatingAdmissionPolicyStatus $status = null;
+
     public function __construct() {
         $this->apiVersion = $this::VERSION;
         $this->kind = $this::KIND;
         $this->metadata = new ObjectMeta();
         $this->spec = new ValidatingAdmissionPolicySpec();
+        $this->status = new ValidatingAdmissionPolicyStatus();
     }
 }

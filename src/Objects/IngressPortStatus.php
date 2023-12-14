@@ -5,7 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 class IngressPortStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Error is to record the problem with the service port The format of the
+     * error is to record the problem with the service port The format of the
      * error shall comply with the following rules: - built-in error values
      * shall be specified in this file and those shall use
      *   CamelCase names
@@ -16,12 +16,12 @@ class IngressPortStatus extends \Moonspot\Kubernetes\BaseObject {
     public ?string $error = null;
 
     /**
-     * Port is the port number of the ingress port.
+     * port is the port number of the ingress port.
      */
     public int $port;
 
     /**
-     * Protocol is the protocol of the ingress port. The supported values are:
+     * protocol is the protocol of the ingress port. The supported values are:
      * "TCP", "UDP", "SCTP"
      */
     public string $protocol;

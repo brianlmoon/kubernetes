@@ -13,9 +13,9 @@ class CSINodeDriver extends \Moonspot\Kubernetes\BaseObject {
     public ?VolumeNodeResources $allocatable = null;
 
     /**
-     * This is the name of the CSI driver that this object refers to. This MUST
-     * be the same name returned by the CSI GetPluginName() call for that
-     * driver.
+     * name represents the name of the CSI driver that this object refers to.
+     * This MUST be the same name returned by the CSI GetPluginName() call for
+     * that driver.
      */
     public string $name;
 

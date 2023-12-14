@@ -38,13 +38,13 @@ class OwnerReference extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * Name of the referent. More info:
-     * http://kubernetes.io/docs/user-guide/identifiers#names
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
      */
     public string $name;
 
     /**
      * UID of the referent. More info:
-     * http://kubernetes.io/docs/user-guide/identifiers#uids
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
      */
     public string $uid;
 

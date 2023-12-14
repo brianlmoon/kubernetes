@@ -17,7 +17,7 @@ class LeaseSpec extends \Moonspot\Kubernetes\BaseObject {
     /**
      * leaseDurationSeconds is a duration that candidates for a lease need to
      * wait to force acquire it. This is measure against time of last observed
-     * RenewTime.
+     * renewTime.
      */
     public ?int $leaseDurationSeconds = null;
 

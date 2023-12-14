@@ -31,12 +31,13 @@ class NetworkPolicy extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * Specification of the desired behavior for this NetworkPolicy.
+     * spec represents the specification of the desired behavior for this
+     * NetworkPolicy.
      */
     public ?NetworkPolicySpec $spec = null;
 
     /**
-     * Status is the current state of the NetworkPolicy. More info:
+     * status represents the current state of the NetworkPolicy. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      */
     public ?NetworkPolicyStatus $status = null;

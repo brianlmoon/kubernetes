@@ -5,7 +5,7 @@ namespace Moonspot\Kubernetes\Objects;
 class ContainerResourceMetricStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Container is the name of the container in the pods of the scaling target
+     * container is the name of the container in the pods of the scaling target
      */
     public string $container;
 
@@ -15,7 +15,7 @@ class ContainerResourceMetricStatus extends \Moonspot\Kubernetes\BaseObject {
     public MetricValueStatus $current;
 
     /**
-     * Name is the name of the resource in question.
+     * name is the name of the resource in question.
      */
     public string $name;
 

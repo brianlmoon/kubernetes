@@ -15,7 +15,8 @@ class VolumeAttachmentSource extends \Moonspot\Kubernetes\BaseObject {
     public ?PersistentVolumeSpec $inlineVolumeSpec = null;
 
     /**
-     * Name of the persistent volume to attach.
+     * persistentVolumeName represents the name of the persistent volume to
+     * attach.
      */
     public ?string $persistentVolumeName = null;
 

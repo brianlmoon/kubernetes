@@ -53,7 +53,8 @@ class DeploymentSpec extends \Moonspot\Kubernetes\BaseObject {
     public ?DeploymentStrategy $strategy = null;
 
     /**
-     * Template describes the pods that will be created.
+     * Template describes the pods that will be created. The only allowed
+     * template.spec.restartPolicy value is "Always".
      */
     public PodTemplateSpec $template;
 

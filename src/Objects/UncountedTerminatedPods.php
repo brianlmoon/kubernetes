@@ -7,12 +7,12 @@ use Moonspot\Kubernetes\Objects\Sets\StringSet;
 class UncountedTerminatedPods extends \Moonspot\Kubernetes\BaseObject {
 
     /**
-     * Failed holds UIDs of failed Pods.
+     * failed holds UIDs of failed Pods.
      */
     public ?StringSet $failed = null;
 
     /**
-     * Succeeded holds UIDs of succeeded Pods.
+     * succeeded holds UIDs of succeeded Pods.
      */
     public ?StringSet $succeeded = null;
 

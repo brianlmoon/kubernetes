@@ -12,7 +12,8 @@ class ObjectMeta extends \Moonspot\Kubernetes\BaseObject {
      * Annotations is an unstructured key value map stored with a resource that
      * may be set by external tools to store and retrieve arbitrary metadata.
      * They are not queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info:
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
      */
     public ?array $annotations = null;
 
@@ -103,7 +104,7 @@ class ObjectMeta extends \Moonspot\Kubernetes\BaseObject {
      * Map of string keys and values that can be used to organize and
      * categorize (scope and select) objects. May match selectors of
      * replication controllers and services. More info:
-     * http://kubernetes.io/docs/user-guide/labels
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
      */
     public ?array $labels = null;
 
@@ -123,7 +124,7 @@ class ObjectMeta extends \Moonspot\Kubernetes\BaseObject {
      * generation of an appropriate name automatically. Name is primarily
      * intended for creation idempotence and configuration definition. Cannot
      * be updated. More info:
-     * http://kubernetes.io/docs/user-guide/identifiers#names
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
      */
     public ?string $name = null;
 
@@ -135,7 +136,7 @@ class ObjectMeta extends \Moonspot\Kubernetes\BaseObject {
      * be empty.
      * 
      * Must be a DNS_LABEL. Cannot be updated. More info:
-     * http://kubernetes.io/docs/user-guide/namespaces
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces
      */
     public ?string $namespace = null;
 
@@ -174,7 +175,7 @@ class ObjectMeta extends \Moonspot\Kubernetes\BaseObject {
      * and is not allowed to change on PUT operations.
      * 
      * Populated by the system. Read-only. More info:
-     * http://kubernetes.io/docs/user-guide/identifiers#uids
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids
      */
     public ?string $uid = null;
 

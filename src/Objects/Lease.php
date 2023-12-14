@@ -31,7 +31,7 @@ class Lease extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * Specification of the Lease. More info:
+     * spec contains the specification of the Lease. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      */
     public ?LeaseSpec $spec = null;

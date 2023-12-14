@@ -18,7 +18,7 @@ class StatefulSetSpec extends \Moonspot\Kubernetes\BaseObject {
      * default ordinals behavior assigns a "0" index to the first replica and
      * increments the index by one for each additional replica requested. Using
      * the ordinals field requires the StatefulSetStartOrdinal feature gate to
-     * be enabled, which is alpha.
+     * be enabled, which is beta.
      */
     public ?StatefulSetOrdinals $ordinals = null;
 
@@ -84,7 +84,8 @@ class StatefulSetSpec extends \Moonspot\Kubernetes\BaseObject {
      * StatefulSet will fulfill this Template, but have a unique identity from
      * the rest of the StatefulSet. Each pod will be named with the format
      * <statefulsetname>-<podindex>. For example, a pod in a StatefulSet named
-     * "web" with index number "3" would be named "web-3".
+     * "web" with index number "3" would be named "web-3". The only allowed
+     * template.spec.restartPolicy value is "Always".
      */
     public PodTemplateSpec $template;
 

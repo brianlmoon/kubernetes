@@ -31,13 +31,13 @@ class Scale extends \Moonspot\Kubernetes\BaseObject {
     public ?ObjectMeta $metadata = null;
 
     /**
-     * defines the behavior of the scale. More info:
+     * spec defines the behavior of the scale. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      */
     public ?ScaleSpec $spec = null;
 
     /**
-     * current status of the scale. More info:
+     * status is the current status of the scale. More info:
      * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * Read-only.
      */

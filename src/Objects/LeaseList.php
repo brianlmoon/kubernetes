@@ -19,7 +19,7 @@ class LeaseList extends \Moonspot\Kubernetes\BaseObject {
     public ?string $apiVersion = null;
 
     /**
-     * Items is a list of schema objects.
+     * items is a list of schema objects.
      */
     public LeaseSet $items;
 

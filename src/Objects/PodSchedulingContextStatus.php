@@ -4,7 +4,7 @@ namespace Moonspot\Kubernetes\Objects;
 
 use Moonspot\Kubernetes\Objects\Sets\ResourceClaimSchedulingStatusSet;
 
-class PodSchedulingStatus extends \Moonspot\Kubernetes\BaseObject {
+class PodSchedulingContextStatus extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * ResourceClaims describes resource availability for each

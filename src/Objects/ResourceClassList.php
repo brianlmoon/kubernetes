@@ -8,7 +8,7 @@ class ResourceClassList extends \Moonspot\Kubernetes\BaseObject {
 
     public const KIND = 'ResourceClassList';
 
-    public const VERSION = 'resource.k8s.io/v1alpha1';
+    public const VERSION = 'resource.k8s.io/v1alpha2';
 
     /**
      * APIVersion defines the versioned schema of this representation of an

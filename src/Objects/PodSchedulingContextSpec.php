@@ -4,7 +4,7 @@ namespace Moonspot\Kubernetes\Objects;
 
 use Moonspot\Kubernetes\Objects\Sets\StringSet;
 
-class PodSchedulingSpec extends \Moonspot\Kubernetes\BaseObject {
+class PodSchedulingContextSpec extends \Moonspot\Kubernetes\BaseObject {
 
     /**
      * PotentialNodes lists nodes where the Pod might be able to run.

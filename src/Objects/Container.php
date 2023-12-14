@@ -6,6 +6,7 @@ use Moonspot\Kubernetes\Objects\Sets\StringSet;
 use Moonspot\Kubernetes\Objects\Sets\EnvVarSet;
 use Moonspot\Kubernetes\Objects\Sets\EnvFromSourceSet;
 use Moonspot\Kubernetes\Objects\Sets\ContainerPortSet;
+use Moonspot\Kubernetes\Objects\Sets\ContainerResizePolicySet;
 use Moonspot\Kubernetes\Objects\Sets\VolumeDeviceSet;
 use Moonspot\Kubernetes\Objects\Sets\VolumeMountSet;
 
@@ -109,6 +110,11 @@ class Container extends \Moonspot\Kubernetes\BaseObject {
     public ?Probe $readinessProbe = null;
 
     /**
+     * Resources resize policy for the container.
+     */
+    public ?ContainerResizePolicySet $resizePolicy = null;
+
+    /**
      * Compute Resources required by this container. Cannot be updated. More
      * info:
      * https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
@@ -208,6 +214,7 @@ class Container extends \Moonspot\Kubernetes\BaseObject {
         $this->livenessProbe = new Probe();
         $this->ports = new ContainerPortSet();
         $this->readinessProbe = new Probe();
+        $this->resizePolicy = new ContainerResizePolicySet();
         $this->resources = new ResourceRequirements();
         $this->securityContext = new SecurityContext();
         $this->startupProbe = new Probe();
